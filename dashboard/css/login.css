@@ -1,0 +1,100 @@
+@font-face {
+    font-family: Berthold;
+    src: url(./fonts/BERTHOLD.TTF);
+}
+
+body {
+    background-image: url("../img/login_bc.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: 'Berthold';
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(238, 238, 238, 0.8);
+    margin-top: 6rem;
+    height: 45rem;
+}
+
+.image {
+    width: 20rem;
+    margin-top: 4rem;
+}
+
+.inputarea-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80rem;
+}
+
+.label-container {
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    font-size: 160%;
+}
+
+.textarea {
+    width: 60rem;
+    height: 3rem;
+    border: none;
+}
+
+.submit-knop {
+    background-color: #FF00E6;
+    border: none;
+    width: 15rem;
+    height: 3.5rem;
+    color: white;
+    margin: 5rem;
+    font-size: 160%;
+}
+
+.submit-knop:hover {
+    background-color: hsl(306, 100%, 40%);
+}
+
+
+.submit-knop:active {
+    background-color: hsl(306, 100%, 30%);
+}
+
+@media only screen and (max-width: 1400px) {
+    .inputarea-container {
+        width: 50rem;
+    }
+
+    .textarea {
+        width: 30rem;
+        height: 3rem;
+        border: none;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .inputarea-container {
+        width: 30rem;
+    }
+
+    .textarea {
+        width: 20rem;
+        height: 3rem;
+        border: none;
+    }
+}
