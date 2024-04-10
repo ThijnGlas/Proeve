@@ -1,0 +1,151 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+@font-face {
+    font-family: 'custom';
+    src: url('./fonts/BERTHOLD.TTF');
+  }
+  
+
+*{
+    font-family: 'custom', Arial, Helvetica, sans-serif;
+    color: #FFF
+}
+
+body{
+    background-color: #000;
+    display: flex;
+}
+
+a {
+    all: unset;
+}
+
+body .sidemenu{
+    background-color: #1A1A1A;
+    height: 100vh;
+    width: 20%;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+
+body .sidemenu .img-container{
+height: 20%;
+
+}
+
+body .sidemenu .img-container img{
+    height: auto;
+    width: 45%;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+    
+
+body .sidemenu div{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+body .sidemenu ul{
+    margin-left: 30px;
+    height: 65%;
+    list-style: none;
+    cursor: default;
+    font-size: 32px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+ 
+body .sidemenu ul li:hover{
+    color: #FF00E6;
+}
+
+
+body .sidemenu ul li:active{
+    color: hsl(306, 100%, 40%);
+}
+
+body .sidemenu .buttons_user{
+    display: flex;
+    flex-direction: column;
+    height: 35%;
+    width: 100%;
+    padding: 0;
+
+}
+
+body .sidemenu .buttons_user .user{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    height: 20%;
+    margin-bottom: 10%;
+}
+body .sidemenu .buttons_user .user img{
+    height: 100%;
+}
+
+
+
+body .sidemenu .buttons_user div{
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+
+
+}
+body .sidemenu .buttons_user div p{
+ font-size: 32px;
+}
+
+
+body .sidemenu .buttons_user .avail{
+    height: 30%;
+    background-color: #78A083;
+}
+body .sidemenu .buttons_user .avail:hover{
+    background-color: hsl(137, 17%, 45%);
+}
+body .sidemenu .buttons_user .avail:active{
+    background-color: hsl(137, 17%, 35%);
+}
+
+body .sidemenu .buttons_user .logout{
+    height: 45%;
+    background-color: #A0153E;
+}
+
+body .sidemenu .buttons_user .logout:hover{
+    background-color: hsl(342, 77%, 25%);
+}
+body .sidemenu .buttons_user .logout:active{
+    background-color: hsl(342, 77%, 15%);
+}
+
+body .content-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+body .content-wrapper .content{
+    width: 90%;
+}

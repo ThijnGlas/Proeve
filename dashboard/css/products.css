@@ -1,0 +1,46 @@
+nav{
+    display: flex;
+    align-items: center;
+    width: 60%;
+    justify-content: space-between;
+}
+
+nav h1{ 
+    font-size: 32px;
+    font-weight: 100;
+}
+
+nav a{
+    width: 35%;
+    height: 50px;
+    background-color: #78A083;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+nav a:hover{
+    background-color: hsl(137, 17%, 45%);
+}
+nav a:active{
+    background-color: hsl(137, 17%, 35%);
+}
+
+nav form{
+    width: 35%;
+    height: 40px;
+}
+
+nav form .id-zoek{
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    background-image: url(../img/loop.png);
+    background-size: auto 70%;
+    font-size: 16px;
+    text-indent: 45px;
+    color: #000;
+    background-position: 10px 50%; 
+    background-repeat: no-repeat;
+}
