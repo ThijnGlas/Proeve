@@ -1,0 +1,116 @@
+.form-wrapper{
+    margin-top: 20px;
+    width: 100%;
+    background-color: #D9D9D9;
+    color: #000 !important;
+}
+
+.form-wrapper{
+    width: 100%;
+    background-color: #D9D9D9;
+
+}
+
+.form-wrapper form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-wrapper form table tbody tr td{
+    width: 40%;
+    padding: 15px;
+}
+
+.form-wrapper form table {
+    width: 90%;
+    margin-top: 20px;
+}
+
+.form-wrapper form table tbody tr td div{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-wrapper form table tbody tr td div label{
+    color: #000;
+    font-size: 2.4rem;
+}
+
+.form-wrapper form table tbody tr td div input{
+    height: 35px;
+    font-size: 2.2rem;
+    color: #000;
+    width: 100%;
+    text-indent: 5px;
+    border: 2px solid hsl(0, 0%, 10%);
+    outline: none;
+}
+
+.form-wrapper form table tbody tr td div .imginput{
+    border: none !important;
+    text-indent: 0px;
+
+}
+
+.form-wrapper form table tbody tr td div input:focus{
+    border: 2px solid #FF00E6;
+}
+
+.form-wrapper form .description{
+    display: flex;
+    flex-direction: column;
+    font-size: 2.4rem;
+    color: #000;
+    padding: 15px;
+    width: 90%;
+}
+
+.form-wrapper form .description label{
+    font-size: 2.4rem;
+    color: #000;
+}
+
+.form-wrapper form .description textarea{
+    font-size: 2.2rem;
+    color: #000;
+    width: 100%;
+    height: 150px;
+    border: 2px solid hsl(0, 0%, 10%);
+    outline: none;
+}
+
+.form-wrapper form .description textarea:focus{
+    border: 2px solid #FF00E6;
+}
+
+.form-wrapper form .button-center{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+
+.form-wrapper form .button-center input{
+    font-size: 2.4rem;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FF00E6;
+
+    border: none;
+    color: white;
+}
+
+
+.form-wrapper form .button-center input:hover {
+    background-color: hsl(306, 100%, 40%);
+}
+
+
+.form-wrapper form .button-center input:active {
+    background-color: hsl(306, 100%, 30%);
+}

@@ -53,7 +53,7 @@ if (isset($_POST['loginForm'])) {
 <html>
 
 <head>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -71,7 +71,7 @@ if (isset($_POST['loginForm'])) {
           <input id="username" class="textarea" type="text" name="usernameInput" />
         </div>
         <div class="label-container">
-          <label for="username"><p>Wachtwoord</p></label>
+          <label for="password"><p>Wachtwoord</p></label>
           <input id="password" class="textarea" type="password" name="passwordInput" />
         </div>
 
