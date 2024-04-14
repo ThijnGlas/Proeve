@@ -1,0 +1,79 @@
+.formulier{width: 60%;
+height: 550px;
+position: relative;
+left: 20%;
+justify-content:center;
+align-items: center;
+background: #f2f2f2f2;}
+
+.formulier#email{justify-content: center;}
+h2{position: relative;
+    left: 335px;
+    top: 50px;
+    font-family: sans-serif;
+    font-weight: 300;
+}
+#email{
+    height: 40px;
+    width: 350px;
+align-content: center;
+top: 135px;
+display: flex;
+position: relative;
+border: none;}
+
+#naam{height: 40px;
+    width: 350px;
+justify-content: center;
+top: 95px;
+display: flex;
+position: relative;
+border: none;}
+#nummer{
+    height: 40px;
+    width: 350px;
+justify-content: center;
+top: 115px;
+display: flex;
+position: relative;
+border: none;
+}
+label1{
+    position: relative;
+    justify-content: center;
+    top: 95px;
+font-size: 22px;
+font-family: sans-serif;}
+
+label2{
+    position: relative;
+    justify-content: center;
+    top: 115px;
+font-size: 22px;
+font-family: sans-serif;}
+
+label3{
+    position: relative;
+    justify-content: center;
+    top: 135px;
+font-size: 22px;
+font-family: sans-serif;}
+.button{
+    background-color: #ff01e6;
+    border:none;
+    height: 50px;
+    width: 230px;
+   position: relative;
+ top: 185px;
+    left: 315px;
+    font-size: 25px;
+    color:white;
+}
+.button:hover{
+    background-color: white;
+    color: #ff01e6;
+    border: 2px solid #ff01e6;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
