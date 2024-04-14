@@ -52,12 +52,11 @@ Body{
     justify-content: center;
 }
 
-
 .productCard{
     background-color: white;
     width: 20rem;
     height: 20rem;
-    background-image: url(../Media/resistor.png);
+    background-image: url(../../Media/resistor.png);
     background-repeat: no-repeat;
     background-size: cover;
     font-size: 170%;
