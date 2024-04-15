@@ -26,7 +26,8 @@ if (array_key_exists('action', $_GET)) {
     //deze get gebruik ik om de message variable te veranderen. Zo kan ik makkelijk een message mee geven over wat er gebeurd in de cms zoals als een artikel word toegevoegd.
     if ($_GET['action'] == "article_posted") {
         $message = "<div class=\"message succesmessage\">Het artikel is toegevoegd</div>";
-    } elseif ($_GET['action'] == "article_updated") {
+    } 
+    elseif ($_GET['action'] == "article_updated") {
         $message = "<div class=\"message updatemessage\">Het artikel is geupdate</div>";
     }
 }
@@ -36,6 +37,7 @@ if (array_key_exists('action', $_GET)) {
 
 <head>
     <link rel="stylesheet" href="./css/style.css">
+
 </head>
 
 <body>
@@ -82,8 +84,6 @@ if (array_key_exists('action', $_GET)) {
         </div>
     </div>
 </body>
-<footer>
-    <link rel="stylesheet" href="./css/home.css">
-</footer>
+
 
 </html>

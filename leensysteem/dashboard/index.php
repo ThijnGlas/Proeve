@@ -53,26 +53,36 @@ if (isset($_POST['loginForm'])) {
 <html>
 
 <head>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <main>
-        <img src="login_bc.png" alt="">
-        <form name="loginForm" action="index.php" method="post">
-            <img src="logo_wit.png" alt="">
-            <input type="hidden" name="loginForm" value="1">
-            <h2>
-                <?= $error_message ?>
-            </h2>
-            <input type="text" placeholder="username" name="usernameInput">
-            <input type="password" placeholder="password" name="passwordInput">
-            <input class="submit-knop" value="log in" type="submit">
-        </form>
-    </main>
+  <main>
+    <form name="loginForm" action="index.php" method="post">
+      <div class="logo-container">
+        <img src="img/primary-logo-2.png" alt="Logo" />
+      </div>
+
+      <input type="hidden" name="loginForm" value="1" />
+      <h2><?= $error_message ?></h2>
+      <div class="inputarea-container">
+        <div class="label-container">
+          <label for="username"><p>Gebruikersnaam</p></label>
+          <input id="username" class="textarea" type="text" name="usernameInput" />
+        </div>
+        <div class="label-container">
+          <label for="password"><p>Wachtwoord</p></label>
+          <input id="password" class="textarea" type="password" name="passwordInput" />
+        </div>
+
+        <input class="submit-knop" value="Login" type="submit" />
+      </div>
+
+    </form>
+  </main>
 </body>
 <footer>
-<link rel="stylesheet" href="login.css">
+<link rel="stylesheet" href="./css/login.css">
 </footer>
 
 </html>

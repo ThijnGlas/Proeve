@@ -1,0 +1,112 @@
+body {
+    background-image: url("../img/login_bc.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: 'Berthold';
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgba(238, 238, 238, 0.8);
+    margin-top: 6rem;
+    height: 55rem;
+}
+
+.logo-container img {
+    width: 20rem;
+    margin-top: 4rem;
+}
+
+.inputarea-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80rem;
+}
+
+.label-container { 
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+
+.label-container label{ 
+    font-size: 2.2rem;
+}
+
+p {
+    font-size: 160%;
+    color: #000;
+}
+
+input{
+    color: #000;
+    font-size: 2.2rem;
+}
+
+.textarea {
+    width: 60rem;
+    height: 4rem;
+    border: none;
+    text-indent: 10px;
+}
+
+.submit-knop {
+    background-color: #FF00E6;
+    border: none;
+    width: 15rem;
+    height: 4rem;
+    color: white;
+    margin: 5rem;
+    font-size: 2.2rem;
+}
+
+.submit-knop:hover {
+    background-color: hsl(306, 100%, 40%);
+}
+
+
+.submit-knop:active {
+    background-color: hsl(306, 100%, 30%);
+}
+
+@media only screen and (max-width: 1400px) {
+    .inputarea-container {
+        width: 50rem;
+    }
+
+    .textarea {
+        width: 30rem;
+        height: 3rem;
+        border: none;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .inputarea-container {
+        width: 30rem;
+    }
+
+    .textarea {
+        width: 20rem;
+        height: 3rem;
+        border: none;
+    }
+}
