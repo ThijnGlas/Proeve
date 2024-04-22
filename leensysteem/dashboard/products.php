@@ -4,12 +4,12 @@
 require_once ("functions.php");
 
 //hier zet ik de dbconnect functie in een $connention variable dit doe ik zodat ik hem makkelijk kan oproepen
-$connection = dbconnect("stageblog");
+$connection = dbconnect("c5831Leensysteem");
 
 ?>
 
 <nav>
-    <h1>products</h1>
+    <h1>Producten</h1>
     <a href="?page=addproduct">
         <p>product toevoegen</p>
     </a>
@@ -61,5 +61,5 @@ $connection = dbconnect("stageblog");
 
 
 <footer>
-    <link rel="stylesheet" href="./css/products.css">
+    <link rel="stylesheet" href="./css/tablePage.css">
 </footer>

@@ -1,0 +1,43 @@
+.middleSection-container{
+    display: flex;
+    justify-content: center;
+}
+
+.productCard-container{
+    width: 80%;
+    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.productCard{
+    background-color: white;
+    width: 20rem;
+    height: 20rem;
+    font-size: 2.2rem;
+    display: flex;
+    align-items: end;
+}
+
+.productCard-pink{
+    color: #FF00E6;
+}
+
+.productCard p{
+    margin: 0;
+    padding: 1rem;
+}
+
+.productCardImage-container{
+    display: flex;
+    align-items: center;
+}
+
+.productCardImage-container img{
+    width: 31px;
+    height: 27px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    scale: 1.4;
+}
