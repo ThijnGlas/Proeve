@@ -1,6 +1,6 @@
 @font-face {
     font-family: Berthold;
-    src: url(.././dashboard/css/fonts/BERTHOLD.TTF);
+    src: url(../../dashboard/css/fonts/BERTHOLD.TTF);
 }
 Body{
     background-color: black;
@@ -37,53 +37,6 @@ Body{
 .searchBarTextarea{
     border: none;
     resize: none;
-}
-
-.middleSection-container{
-    display: flex;
-    justify-content: center;
-}
-
-.productCard-container{
-    width: 80%;
-    gap: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.productCard{
-    background-color: white;
-    width: 20rem;
-    height: 20rem;
-    background-image: url(../../../Media/resistor.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-size: 170%;
-    display: flex;
-    align-items: end;
-}
-
-.productCard-pink{
-    color: #FF00E6;
-}
-
-.productCard p{
-    margin: 0;
-    padding: 1rem;
-}
-
-.productCardImage-container{
-    display: flex;
-    align-items: center;
-}
-
-.productCardImage-container img{
-    width: 31px;
-    height: 27px;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    scale: 1.4;
 }
 
 .footer{

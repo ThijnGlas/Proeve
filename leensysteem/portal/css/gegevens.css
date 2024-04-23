@@ -1,11 +1,3 @@
-@font-face {
-    font-family: Berthold;
-    src: url(../../dashboard/css/fonts/BERTHOLD.TTF);
-}
-
-body{
-    font-family: Berthold;
-}
 
 .form-container{
     display: flex;
@@ -61,6 +53,13 @@ body{
 }
 
 .button:hover {
+    background-color: white;
+    color: #ff01e6;
+    border: 2px solid #ff01e6;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.button:active {
     background-color: white;
     color: #ff01e6;
     border: 2px solid #ff01e6;

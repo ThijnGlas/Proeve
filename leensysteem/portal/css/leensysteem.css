@@ -1,0 +1,61 @@
+.middleSection-container{
+    display: flex;
+    justify-content: center;
+}
+
+.productCard-container{
+    width: 80%;
+    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.productCard{
+    background-color: white;
+    width: 20rem;
+    height: 20rem;
+    font-size: 170%;
+    display: flex;
+    align-items: end;
+}
+
+.productCard p{
+    margin: 0;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    width: 16rem;
+}
+
+.productCardImage-container{
+    display: flex;
+    align-items: center;
+    padding-bottom: 1rem;
+    justify-content: center;
+    height: 66px;
+}
+
+.background{
+    height: 2.1rem;
+    width: 2.4rem;
+    background-image: url(../../../Media/blackarrow.png);
+    background-size: cover;
+}
+
+.productCard p:active{
+    color: #FF01E6;
+}
+.productCard:active p,
+.productCard:active .productCardImage-container .background {
+    color: #FF01E6;
+}
+
+.productCard:active .productCardImage-container .background,
+.productCard p:active + .productCardImage-container .background {
+    background-image: url(../../../Media/pinkarrow.png);
+}
+
+.productCardImage-container .background:active{
+    background-image: url(../../../Media/pinkarrow.png);
+}
+
