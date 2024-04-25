@@ -28,6 +28,10 @@ Body{
     align-items: center;
 }
 
+.navbarA{
+    cursor: pointer;
+}
+
 body .navBar .navBarRight .searchBar form .id-zoek{
     width: 20vw;
     height: 80%;
