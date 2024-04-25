@@ -6,7 +6,9 @@
             //in deze query kijk ik of er artikels zijn waarvan de titel of het id in de database staat als beide niet waar zijn krijg je een message met daarin artikel niet gevonden.
             $productsFromDatabase = mysqli_query($connection, "SELECT * FROM products WHERE name LIKE '%" . $_POST['zoekenInput'] . "%' OR id = '" . $_POST['zoekenInput'] . "'") or die(mysqli_error($connection));
             if (mysqli_num_rows($productsFromDatabase) == 0) {
-                header("location: home.php?page=products&action=product_notfound");
+                header("location: ?page=products&notfound=1");
+                $productsFromDatabase = mysqli_query($connection, "SELECT * FROM products ORDER BY id DESC");
+
             }
         } else {
             //als er niks is ingetypt krijg je alle artikels te zien

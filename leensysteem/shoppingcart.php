@@ -1,11 +1,16 @@
+<?php 
 
 
+?>
 <div class="form-container">
   <div class="formulier">
     <h2>uw winkelwagen</h2>
+    <a href="?page=index.php&action=clear"><p>leeg uw winkelwagen</p></a>
     <?php getProductsShoppingcart(); ?>
     <div class="button-container">
-      <button class="button">Stuur verzoek</button>
+      <form action="?page=request.php" name="sendRequest" method="post">
+        <input type="submit" value="Stuur verzoek" class="button"></input>
+      </form>
     </div>
   </div>
 </div>

@@ -54,6 +54,28 @@ body .navBar .navBarRight .searchBar form .id-zoek{
     gap: 2rem;
 }
 
+body .navBar .message {
+    width: 30vw;
+    height: 50px;
+    color: #fff;
+    font-size: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+body .navBar .succes-msg {
+    background-color: #3D925A;
+}
+
+body .navBar .remove-msg {
+    background-color: #B91F1F;
+}
+body .navBar .clear-msg {
+    background-color: #567189;
+}
+
 
 .searchBarTextarea{
     border: none;

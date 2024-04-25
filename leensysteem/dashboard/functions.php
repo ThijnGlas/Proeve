@@ -78,19 +78,10 @@ function getProductsShoppingcart()
                         <p class="spacer3"><?=$values['item_quantity']?></p>
                     </div>
                     <div class="hoeveel">
-                        <button class="button1">+</button>
-                        <button class="button1">-</button>
+                    <a href="?page=shoppingcart&action=delete&id=<?php echo $row["id"]; ?>"><img src="./img/trashcan.png" alt=""></a>
+                        </form>
                     </div>
                 </div>
-
-                <!-- echo "
-                <tr>
-                <td><img src=\"./img/" . $row['img'] . " alt=\"".$row['name']."\" />
-                <td class=\"title\" colspan=\"2\"><p>" . $row['name'] . "</p></td>
-                <td><p>" . $row['model_type'] . "</p></td>
-                <td></td>
-                <td></td>
-                </tr>"; -->
                 <?php
             }
         }
@@ -99,8 +90,35 @@ function getProductsShoppingcart()
         <tr>
             <td><p>u heeft geen producten in uw winkewagen</p></td>
         </tr>";
+
     }
 }
+
+
+
+function storeToBorrowed(){
+    $connection = dbconnect("c5831Leensysteem");
+    if(isset($_POST['sendRequest'])){
+        $cookie_data = stripslashes($_COOKIE['shopping_cart']);
+        $cart_data = json_decode($cookie_data, true);
+        mysqli_query(
+            $connection,
+            "INSERT INTO borrow 
+    (name, amount, model_type, max_amount, storage_id, img, description)
+    values
+    '" . mysqli_real_escape_string($connection, $_POST['nameInput']) . "', 
+    '" . mysqli_real_escape_string($connection, $_POST['amountInput']) . "', 
+    '" . mysqli_real_escape_string($connection, $_POST['modelTypeInput']) . "', 
+    '" . mysqli_real_escape_string($connection, $_POST['maxamountInput']) . "', 
+    '" . mysqli_real_escape_string($connection, $_POST['storageIDInput']) . "', 
+    '" . mysqli_real_escape_string($connection, $_POST['imgInput']) . "', 
+    '" . mysqli_real_escape_string($connection, $_POST['descriptionInput']) . "'
+    )"
+        ) or die(mysqli_error($connection));
+
+
+    }
+};
 
 
 ?>
