@@ -1,23 +1,22 @@
 <div class="form-container">
     <div class="formulier">
-      <h2>uw gegevens</h2>
-      <form action="formulier.php">
-        <div class="formLabel-container">
-          <label for="Naam">naam</label>
-          <input type="text" id="naam" name="naam">
-        </div>
-        <div class="formLabel-container">
-          <label for="studentennummer">studentennummer</label>
-          <input type="text" id="nummer" name="nummer">
-        </div>
-        <div class="formLabel-container">
-          <label for="email">email adres</label>
-          <input type="email" id="email" name="email">
-        </div>
-        <div class="button-container">
-          <button class="button">Stuur verzoek</button>
-        </div>
-
-      </form>
+        <h2>uw gegevens</h2>
+        <form action="index.php" name="request" method="post">
+            <div class="formLabel-container">
+                <label for="name">naam:</label>
+                <input type="text" id="name" name="nameInput">
+            </div>
+            <div class="formLabel-container">
+                <label for="number">studentennummer:</label>
+                <input type="number" id="number" name="studentNumberInput">
+            </div>
+            <div class="button-container">
+                <input type="submit" value="Stuur verzoek" class="button"></input>
+            </div>
+        </form>
     </div>
-  </div>
+</div>
+
+<footer>
+  <link rel="stylesheet" href="./css/request.css">
+</footer>

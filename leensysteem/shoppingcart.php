@@ -8,7 +8,7 @@
     <a href="?page=index.php&action=clear"><p>leeg uw winkelwagen</p></a>
     <?php getProductsShoppingcart(); ?>
     <div class="button-container">
-      <form action="?page=request.php" name="sendRequest" method="post">
+      <form action="index.php?page=request" name="sendRequest" method="post">
         <input type="submit" value="Stuur verzoek" class="button"></input>
       </form>
     </div>
