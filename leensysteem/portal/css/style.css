@@ -1,50 +1,108 @@
 @font-face {
-    font-family: Berthold;
-    src: url(../../dashboard/css/fonts/BERTHOLD.TTF);
-}
-Body{
-    background-color: black;
-    font-family: 'Berthold';
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  font-family: Berthold;
+  src: url(../../dashboard/css/fonts/BERTHOLD.TTF);
 }
 
-.navBar{
-    display: flex;
-    flex-direction: row;
-    margin: 1.5rem;
-    justify-content: space-between;
+* {
+  font-size: 62.5%;
 }
 
-.navBarLogo{
-    max-width: 10rem;
+Body {
+  background-color: black;
+  font-family: "Berthold";
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 1920px;
 }
 
-.navBarRight{
-    display: flex;
-    gap: 2rem;
+.navbar-container {
+  top: 0;
+  position: fixed;
+  background-color: black;
+  width: 100%;
 }
 
-.searchBar{
-    background-color: white;
-    display: flex;
-    padding: 0.8rem;
-    border-radius: 1rem;
+.navBar {
+  display: flex;
+  flex-direction: row;
+  margin: 2.4rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+
+.navBarLogo {
+  max-width: 16rem;
+  max-height: 8rem;
+}
+
+.navBarRight {
+  display: flex;
+  gap: 3.2rem;
+  flex-wrap: wrap;
+}
+
+.searchBar {
+  background-color: white;
+  display: flex;
+  padding: 1.28rem;
+  border-radius: 3rem;
+  gap: 1.6rem;
+}
+
+.searchBarTextarea {
+  border: none;
+  resize: none;
+  width: 24rem;
+}
+
+.footer {
+  background-color: #d9d9d9;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  font-size: 4rem;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+@media only screen and (max-width: 950px) {
+  .footer {
+    font-size: 3rem;
+  }
+}
+
+
+@media only screen and (max-width: 650px) {
+  .navBar{
     gap: 1rem;
-}
+  }
+  .searchBarTextarea {
+    width: 10rem;
+    height: 6rem;
+    height: 4rem;
+  }
 
-.searchBarTextarea{
-    border: none;
-    resize: none;
-}
+  .searchBar {
+    margin-left: 3rem;
+    height: 4rem;
+  }
 
-.footer{
-    background-color: #D9D9D9;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-size: 140%;
-    position: sticky;
-    bottom: 0;
-    float: right;
+
+  .navBarRight {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .navBarRight img{
+    height: 6rem;
+    width: 6rem;
+  }
+  .searchBar img {
+    height: 4rem;
+    width: 4rem;
+  }
 }

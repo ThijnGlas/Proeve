@@ -1,61 +1,96 @@
-.middleSection-container{
+.middleSection-container {
     display: flex;
     justify-content: center;
+    margin-top: 16rem;
+    padding-bottom: 19.2rem;
 }
 
-.productCard-container{
-    width: 80%;
-    gap: 2rem;
+.productCard-container {
+    width: 94%;
+    gap: 1.6rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.productCard{
+.productCard {
     background-color: white;
-    width: 20rem;
-    height: 20rem;
-    font-size: 170%;
+    padding: 1rem;
+    width: 20.8rem;
+    height: 20.8rem;
     display: flex;
-    align-items: end;
+    flex-direction: column;
+    font-size: 4.6rem;
 }
 
-.productCard p{
+.productCardBackground {
+    height: 16rem;
+    width: 20.8rem;
+}
+
+.productCard p {
     margin: 0;
-    padding-left: 1rem;
-    padding-bottom: 1rem;
-    width: 16rem;
+    padding-left: 0.8rem;
+    padding-bottom: 0.8rem;
 }
 
-.productCardImage-container{
+.bottom-container {
+    display: flex;
+}
+
+.productCardImage-container {
     display: flex;
     align-items: center;
-    padding-bottom: 1rem;
     justify-content: center;
-    height: 66px;
+    height: 5.4rem;
 }
 
-.background{
-    height: 2.1rem;
-    width: 2.4rem;
+.background {
+    height: 1.9rem;
+    width: 2.24rem;
+    margin: 0.64rem;
     background-image: url(../../../Media/blackarrow.png);
     background-size: cover;
 }
 
-.productCard p:active{
-    color: #FF01E6;
+.productCard p:active {
+    color: #ff01e6;
 }
+
 .productCard:active p,
 .productCard:active .productCardImage-container .background {
-    color: #FF01E6;
+    color: #ff01e6;
 }
 
 .productCard:active .productCardImage-container .background,
-.productCard p:active + .productCardImage-container .background {
+.productCard p:active+.productCardImage-container .background {
     background-image: url(../../../Media/pinkarrow.png);
 }
 
-.productCardImage-container .background:active{
+.productCardImage-container .background:active {
     background-image: url(../../../Media/pinkarrow.png);
 }
 
+@media only screen and (min-width: 1101px) {
+    .productCard-container {
+        width: 60%;
+    }
+
+    .productCard p:hover {
+        color: #ff01e6;
+    }
+
+    .productCard:hover p,
+    .productCard:hover .productCardImage-container .background {
+        color: #ff01e6;
+    }
+
+    .productCard:hover .productCardImage-container .background,
+    .productCard p:hover+.productCardImage-container .background {
+        background-image: url(../../../Media/pinkarrow.png);
+    }
+
+    .productCardImage-container .background:hover {
+        background-image: url(../../../Media/pinkarrow.png);
+    }
+}

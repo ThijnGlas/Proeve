@@ -6,15 +6,18 @@ body {
 .omschrijving-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 80%;
 }
 
 .omschrijving {
-  width: 60rem;
+  width: 85rem;
   position: relative;
   display: flex;
   background-color: #eeee;
-  height: 650px;
+  height: 65rem;
 }
+
 .image-container {
   height: 100%;
   background-color: white;
@@ -24,38 +27,40 @@ body {
 }
 
 .image-container img {
-  height: 260px;
-  margin: 2rem;
+  height: 26rem;
+  margin: 3.2rem;
 }
 
 .omschrijving p {
   position: relative;
-  font-size: 20px;
+  font-size: 2rem;
   font-family: sans-serif;
   font-weight: 300;
   margin: 0;
 }
+
 .omschrijving h2 {
   position: relative;
-  font-size: 25px;
+  font-size: 2.5rem;
   font-family: sans-serif;
   font-weight: 300;
   margin: 0;
 }
+
 .content-container {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin: 3rem;
+  gap: 1.6rem;
+  margin: 4.8rem;
 }
 
 .spacer {
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
 }
 
 .spacer p {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.64rem;
 }
 
 .button-container {
@@ -66,12 +71,11 @@ body {
 .button {
   background-color: #ff01e6;
   border: none;
-  height: 50px;
-  width: 15rem;
+  height: 5rem;
+  width: 24rem;
   position: relative;
-  top: 3rem;
   color: white;
-  font-size: 130%;
+  font-size: 2rem;
 }
 
 .hoeveel-container {
@@ -84,7 +88,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 5rem;
+  margin-right: 8rem;
 }
 
 .hoeveel {
@@ -95,48 +99,114 @@ body {
 .hoeveel h2 {
   position: relative;
 }
+
 .hoeveel p {
   position: relative;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+
 .button1 {
-  height: 60px;
-  width: 60px;
-  font-size: 25px;
+  height: 6rem;
+  width: 6rem;
+  font-size: 2.5rem;
   border: none;
-  border-right: 1px solid;
+  border-right: 0.1rem solid;
   background-color: white;
 }
+
 .button1:hover {
-  height: 60px;
-  width: 60px;
-  font-size: 25px;
+  height: 6rem;
+  width: 6rem;
+  font-size: 2.5rem;
   border: none;
-  border-right: 1px solid;
+  border-right: 0.1rem solid;
   background-color: #d9d9d9;
   cursor: pointer;
 }
+
 .button2 {
-  height: 60px;
-  width: 60px;
-  font-size: 25px;
+  height: 6rem;
+  width: 6rem;
+  font-size: 5rem;
   border: none;
   background-color: white;
 }
-.button2:hover {
-  height: 60px;
-  width: 60px;
-  font-size: 25px;
+
+.button2:focus {
+  height: 6rem;
+  width: 6rem;
+  font-size: 2.5rem;
   border: none;
   background-color: #d9d9d9;
   cursor: pointer;
 }
 
-.button:hover {
+.button:focus {
   background-color: white;
   color: #ff01e6;
   border: 2px solid #ff01e6;
   transition: 0.5s;
   cursor: pointer;
+}
+
+@media only screen and (min-width: 1101px) {
+  .omschrijving-container {
+    height: 50%;
+  }
+
+  body {
+    overflow: hidden;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .omschrijving {
+    width: 60rem;
+    height: 55rem;
+  }
+
+  .omschrijving p {
+    font-size: 1.2rem;
+  }
+
+  .omschrijving h2 {
+    font-size: 1.8rem;
+  }
+}
+
+
+@media only screen and (max-width: 650px) {
+  .omschrijving {
+    width: 35rem;
+    height: 70rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .omschrijving p {
+    font-size: 1rem;
+  }
+
+  .omschrijving h2 {
+    font-size: 1.5rem;
+  }
+
+  .image-container img {
+    height: 14rem;
+    margin: 1.2rem;
+  }
+
+  .button-container {
+    justify-content:flex-start
+  }
+
+  .button {
+    padding: 0;
+  }
+
+  .hoeveelContent-container {
+    margin-right: 1rem;
+
+  }
 }

@@ -1,53 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProductPage</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/gegevens.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ProductPage</title>
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="./css/gegevens.css">
-</head>
-
-<Body>
-  <div class="navBar">
-    <img class="navBarLogo" src="../../Media/primary-logo 1.png" alt="Mediacollege-Logo" />
-    <div class="navBarRight">
-      <img src="../../Media/cart-shopping-solid 2.png" alt="Shoppingcart-Icon" />
-      <div class="searchBar">
-        <img src="../../Media/magnifying-glass.png" alt="Magnifying-glass" />
-        <textarea class="searchBarTextarea" name="" id="" cols="30" rows="1"></textarea>
+  <body>
+    <div class="navbar-container">
+      <div class="navBar">
+        <img
+          class="navBarLogo"
+          src="../../Media/primary-logo 1.png"
+          alt="Mediacollege-Logo"
+        />
+        <div class="navBarRight">
+          <img
+            src="../../Media/cart-shopping-solid 2.png"
+            alt="Shoppingcart-Icon"
+          />
+          <div class="searchBar">
+            <img
+              src="../../Media/magnifying-glass.png"
+              alt="Magnifying-glass"
+            />
+            <textarea
+              class="searchBarTextarea"
+              name=""
+              id=""
+              cols="30"
+              rows="1"
+            ></textarea>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="form-container">
-    <div class="formulier">
-      <h2>uw gegevens</h2>
-      <form action="formulier.php">
-        <div class="formLabel-container">
-          <label for="Naam">naam</label>
-          <input type="text" id="naam" name="naam">
-        </div>
-        <div class="formLabel-container">
-          <label for="studentennummer">studentennummer</label>
-          <input type="text" id="nummer" name="nummer">
-        </div>
-        <div class="formLabel-container">
-          <label for="email">email adres</label>
-          <input type="email" id="email" name="email">
-        </div>
-        <div class="button-container">
-          <button class="button">Stuur verzoek</button>
-        </div>
-
-      </form>
+    <div class="form-container">
+      <div class="formulier">
+        <h2>uw gegevens</h2>
+        <form action="formulier.php">
+          <div class="formLabel-container">
+            <label for="Naam">naam</label>
+            <input type="text" id="naam" name="naam" />
+          </div>
+          <div class="formLabel-container">
+            <label for="studentennummer">studentennummer</label>
+            <input type="text" id="nummer" name="nummer" />
+          </div>
+          <div class="button-container">
+            <button class="button">Stuur verzoek</button>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-  <div class="footer">
-    <h3>Beheerders op school</h3>
-    <p>Juda Hensen</p>
-    <p>Silvan Herrema</p>
-  </div>
-</Body>
-
+    <div class="footer">
+      <h3>Beheerders op school</h3>
+      <p>Juda Hensen</p>
+      <p>Silvan Herrema</p>
+    </div>
+  </body>
 </html>

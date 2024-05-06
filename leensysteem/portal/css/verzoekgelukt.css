@@ -1,18 +1,80 @@
-.verzoek {
+.verzoek-container {
+    display: flex;
+    align-items: center;
+    height: 80%;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .verzoek {
     width: 90%;
-    height: 40rem;
+    height: 64rem;
     position: relative;
     left: 5%;
     background-color: #f2f2f2;
-    font-size: 120%;
+    font-size: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-h2 {
+  }
+  
+  h2 {
     text-align: center;
     font-family: sans-serif;
     font-weight: 300;
+  }
+  @media only screen and (min-width: 1101px) {
+    .verzoek-container{
+        height: 50%;
+    }
+    .verzoek{
+        width: 90rem;
+        left: 0;
+        height: 54rem;
+    }
+    body {
+      overflow: hidden;
+    }
+  }
+  
+  @media only screen and (max-width: 1100px) {
+    .verzoek-container{
+        height: 70%;
+    }
+    .verzoek{
+        width: 80rem;
+        left: 0;
+        height: 54rem;
+    }
+    body {
+      overflow: hidden;
+    }
 }
 
+@media only screen and (max-width: 900px) {
+    .verzoek-container{
+        height: 50%;
+    }
+    .verzoek{
+        width: 60rem;
+        left: 0;
+        height: 45rem;
+    }
+    body {
+      overflow: hidden;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .verzoek-container{
+        height: 35%;
+    }
+    .verzoek{
+        width: 34rem;
+        left: 0;
+        height: 25rem;
+    }
+    body {
+      overflow: hidden;
+    }
+}
