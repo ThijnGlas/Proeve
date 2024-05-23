@@ -1,6 +1,8 @@
 <?php
+
 //hier haal ik een functie op die ik gebruik om een database connectie te maken
 require ("./dashboard/functions.php");
+
 
 //hier zet ik de dbconnect functie in een $connention variable dit doe ik zodat ik hem makkelijk kan oproepen
 $connection = dbconnect("c5831Leensysteem");
@@ -18,7 +20,6 @@ if (array_key_exists('page', $_GET)) {
     $include_page = "products";
 }
 
-storeToBorrowed();
 
 if(isset($_POST["add_to_cart"])){
  if(isset($_COOKIE["shopping_cart"]))
@@ -64,7 +65,6 @@ if(isset($_POST["add_to_cart"])){
    $item_array = array(
     'item_id'   => $_POST["hidden_id"],
     'item_name'   => $_POST["hidden_name"],
-    'item_price'  => $_POST["hidden_price"],
     'item_quantity'  => $_POST["quantity"]
    );
    $cart_data[] = $item_array;
@@ -130,6 +130,7 @@ if(isset($_GET["remove"]))
 }
 
 
+    storeToBorrowed();
 
 ?>
 

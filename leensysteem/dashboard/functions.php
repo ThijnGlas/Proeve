@@ -70,15 +70,16 @@ function getProductsShoppingcart()
 
                 <div class="cartEntree-container">
                     <div class="image-container">
-                        <img src="./img/<?=$row['img']?>" alt="">
+                        <img src="./img/<?= $row['img'] ?>" alt="">
                     </div>
                     <div class="content-container">
-                        <p class="spacer"><?=$values['item_name']?></p>
-                        <p class="spacer2"><?=$values['item_model']?></p>
-                        <p class="spacer3"><?=$values['item_quantity']?></p>
+                        <p class="spacer"><?= $values['item_name'] ?></p>
+                        <p class="spacer2"><?= $values['item_model'] ?></p>
+                        <p class="spacer3"><?= $values['item_quantity'] ?></p>
                     </div>
                     <div class="hoeveel">
-                    <a href="?page=shoppingcart&action=delete&id=<?php echo $row["id"]; ?>"><img src="./img/trashcan.png" alt=""></a>
+                        <a href="?page=shoppingcart&action=delete&id=<?php echo $row["id"]; ?>"><img src="./img/trashcan.png"
+                                alt=""></a>
                         </form>
                     </div>
                 </div>
@@ -95,30 +96,36 @@ function getProductsShoppingcart()
 }
 
 
-
-function storeToBorrowed(){
+function storeToBorrowed()
+{
     $connection = dbconnect("c5831Leensysteem");
-    if(isset($_POST['sendRequest'])){
-        $cookie_data = stripslashes($_COOKIE['shopping_cart']);
-        $cart_data = json_decode($cookie_data, true);
-        mysqli_query(
-            $connection,
-            "INSERT INTO borrow 
-    (name, amount, model_type, max_amount, storage_id, img, description)
-    values
-    '" . mysqli_real_escape_string($connection, $_POST['nameInput']) . "', 
-    '" . mysqli_real_escape_string($connection, $_POST['amountInput']) . "', 
-    '" . mysqli_real_escape_string($connection, $_POST['modelTypeInput']) . "', 
-    '" . mysqli_real_escape_string($connection, $_POST['maxamountInput']) . "', 
-    '" . mysqli_real_escape_string($connection, $_POST['storageIDInput']) . "', 
-    '" . mysqli_real_escape_string($connection, $_POST['imgInput']) . "', 
-    '" . mysqli_real_escape_string($connection, $_POST['descriptionInput']) . "'
-    )"
-        ) or die(mysqli_error($connection));
+    if (isset($_POST['requestForm'])) {
+        if (array_key_exists('nameInput', $_POST) && trim($_POST['nameInput']) != "" && array_key_exists('numberInput', $_POST) && trim($_POST['numberInput'] != "")) {
+            if (isset($_COOKIE['shopping_cart'])) {
+                // die(gmdate('d-m-y'));
+                
+                $cookie_data = $_COOKIE['shopping_cart'];
+                $cart_data = json_decode($cookie_data, true);
 
+                $products = $cart_data;
+                $products_json = json_encode($products);
 
+            mysqli_query(
+                $connection,
+                "INSERT INTO borrow 
+                (name, schoolnumber, products, date_requested)
+                VALUES
+                ('" . mysqli_real_escape_string($connection, $_POST['nameInput']) . "', 
+                '" . mysqli_real_escape_string($connection, $_POST['numberInput']) . "', 
+                '" . mysqli_real_escape_string($connection, $products_json) . "', 
+                '" . gmdate('y-m-d') . "'
+                )"
+            ) or die(mysqli_error($connection));
+            header("location: index.php?page=requestsucces");
+            setcookie("shopping_cart", "", time() - 3600);
+            }
+        }
     }
-};
-
+}
 
 ?>
