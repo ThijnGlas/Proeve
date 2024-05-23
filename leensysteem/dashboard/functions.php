@@ -103,16 +103,16 @@ function storeToBorrowed()
         if (array_key_exists('nameInput', $_POST) && trim($_POST['nameInput']) != "" && array_key_exists('numberInput', $_POST) && trim($_POST['numberInput'] != "")) {
             if (isset($_COOKIE['shopping_cart'])) {
                 // die(gmdate('d-m-y'));
-                
+
                 $cookie_data = $_COOKIE['shopping_cart'];
                 $cart_data = json_decode($cookie_data, true);
 
                 $products = $cart_data;
                 $products_json = json_encode($products);
 
-            mysqli_query(
-                $connection,
-                "INSERT INTO borrow 
+                mysqli_query(
+                    $connection,
+                    "INSERT INTO borrow 
                 (name, schoolnumber, products, date_requested)
                 VALUES
                 ('" . mysqli_real_escape_string($connection, $_POST['nameInput']) . "', 
@@ -120,12 +120,89 @@ function storeToBorrowed()
                 '" . mysqli_real_escape_string($connection, $products_json) . "', 
                 '" . gmdate('y-m-d') . "'
                 )"
-            ) or die(mysqli_error($connection));
-            header("location: index.php?page=requestsucces");
-            setcookie("shopping_cart", "", time() - 3600);
+                ) or die(mysqli_error($connection));
+                header("location: index.php?page=requestsucces");
+                setcookie("shopping_cart", "", time() - 3600);
             }
         }
     }
 }
+
+function updateborrow()
+{
+    $connection = dbconnect("c5831Leensysteem");
+
+    $get_borrow = mysqli_query($connection, "SELECT * FROM borrow WHERE id = '" . mysqli_real_escape_string($connection, $_POST['id']) . "' LIMIT 1") or die(mysqli_error($connection));
+
+    if ($borrow = mysqli_fetch_assoc($get_borrow)) {
+        $name = $borrow['name'];
+        $schoolnumber = $borrow['schoolnumber'];
+    }
+
+    if (isset($_POST['requestupdateForm'])) {
+        if (isset($_POST['accepted'])) {
+            if ($_POST['date']) {
+                mysqli_query(
+                    $connection,
+                    "UPDATE borrow SET 
+                    date_tobereturned = '" . mysqli_real_escape_string($connection, $_POST['date']) . "', 
+                    accepted = '1', 
+                    declined = '0'
+                    WHERE id = '" . mysqli_real_escape_string($connection, $_POST['id']) . "' LIMIT 1"
+                ) or die(mysqli_error($connection));
+                verstuur_mail($name, $schoolnumber, $_POST['date'], 1);
+            } else {
+                header("Location: home.php?page=request&id=" . $_POST['id'] . "&message=1");
+                exit;
+            }
+        } elseif (isset($_POST['declined'])) {
+            mysqli_query(
+                $connection,
+                "UPDATE borrow SET 
+                declined = '1', 
+                accepted = '0'
+                WHERE id = '" . mysqli_real_escape_string($connection, $_POST['id']) . "' LIMIT 1"
+            ) or die(mysqli_error($connection));
+            verstuur_mail($name, $schoolnumber, $_POST['date'], 0);
+        }
+    }
+}
+
+function verstuur_mail($name, $schoolnumber, $returndate, $action ) {
+    $afzender = "30639@ma-web.nl";
+    $ontvanger = $schoolnumber."@ma-web.nl";
+    $onderwerp = "Onderwerp van de e-mail";
+    $bericht = "";
+
+    if($action){
+        $bericht = "
+        Beste $name,
+    
+        Uw aanvraag is geaccepteerd en moet op $returndate ingeleverd worden.
+    
+        Met vriendelijke groet,
+        Techlab
+        ";    
+    }
+    elseif(!$action){
+        $bericht = "
+        Beste $name,
+    
+        Uw aanvraag is afgewezen.
+    
+        Met vriendelijke groet,
+        Techlab
+        ";  
+    }
+
+    $headers = "From: $afzender\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type: text/plain; charset=iso-8859-1\r\n";
+
+    mail($ontvanger, $onderwerp, $bericht, $headers);
+}
+
+
+
 
 ?>
