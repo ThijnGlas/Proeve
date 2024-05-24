@@ -1,12 +1,8 @@
 <?php
 
 
-function getProductsShoppingcart(){
-
-}
-
 function displayBeheerder(){
-    include ('dbconection.php');
+    include ('dbconnection.php');
     $day = date("l");
     $sql = 'SELECT * FROM availabilities';
     $result = mysqli_query($conn, $sql);

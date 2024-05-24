@@ -2,7 +2,6 @@
 
 //hier haal ik een functie op die ik gebruik om een database connectie te maken
 require ("./dashboard/functions.php");
-require ("./dashboard/functions.php");
 function displayBeheerder()
 {
     include ('dbconection.php');
