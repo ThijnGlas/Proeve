@@ -1,0 +1,94 @@
+@font-face {
+    font-family: Berthold;
+    src: url(../dashboard/css/fonts/BERTHOLD.TTF);
+}
+
+*{
+    font-size: 62.5%;
+    font-family: 'Berthold';
+
+}
+
+a {
+    all: unset;
+}
+
+Body{
+    background-color: black;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.navBar{
+    display: flex;
+    flex-direction: row;
+    margin: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbarA{
+    cursor: pointer;
+}
+
+body .navBar .navBarRight .searchBar form .id-zoek{
+    width: 20vw;
+    height: 80%;
+    border-radius: 100px;
+    background-image: url(../img/magnifying-glass.png);
+    background-size: auto 50%;
+    font-size: 1.6rem;
+    text-indent: 60px;
+    color: #000;
+    background-position: 10px 50%; 
+    background-repeat: no-repeat;
+}
+
+.navBarLogo{
+    max-width: 10rem;
+}
+
+.navBarRight{
+    display: flex;
+    gap: 2rem;
+}
+
+body .navBar .message {
+    width: 30vw;
+    height: 50px;
+    color: #fff;
+    font-size: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+body .navBar .succes-msg {
+    background-color: #3D925A;
+}
+
+body .navBar .remove-msg {
+    background-color: #B91F1F;
+}
+body .navBar .clear-msg {
+    background-color: #567189;
+}
+
+
+.searchBarTextarea{
+    border: none;
+    resize: none;
+}
+
+
+.footer{
+    background-color: #D9D9D9;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 2.2rem;
+    position: sticky;
+    bottom: 0;
+    float: right;
+}

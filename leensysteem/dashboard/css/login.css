@@ -13,15 +13,17 @@ main {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 form {
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap: 20px;
     background-color: rgba(238, 238, 238, 0.8);
     margin-top: 6rem;
-    height: 45rem;
+    height: 55rem;
 }
 
 .logo-container img {
@@ -44,6 +46,11 @@ form {
     margin-bottom: 30px;
 }
 
+
+.label-container label{ 
+    font-size: 2.2rem;
+}
+
 p {
     font-size: 160%;
     color: #000;
@@ -51,23 +58,24 @@ p {
 
 input{
     color: #000;
-    text-indent: 10px;
+    font-size: 2.2rem;
 }
 
 .textarea {
     width: 60rem;
-    height: 3rem;
+    height: 4rem;
     border: none;
+    text-indent: 10px;
 }
 
 .submit-knop {
     background-color: #FF00E6;
     border: none;
     width: 15rem;
-    height: 3.5rem;
+    height: 4rem;
     color: white;
     margin: 5rem;
-    font-size: 160%;
+    font-size: 2.2rem;
 }
 
 .submit-knop:hover {

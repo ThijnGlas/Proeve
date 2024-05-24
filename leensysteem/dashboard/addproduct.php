@@ -35,19 +35,18 @@ if (isset($_POST['toevoegenForm'])) {
 
         $uploads_dir = "../img/";
         if ($_FILES["imgInput"]["error"] == 0) {
-            $tmp_name = $_FILES["imgInput"]["tmp_name"];
-            $imgname = basename(mysqli_insert_id($connection) . "_" . $_FILES["imgInput"]["name"]);
-
-            list($file, $ext) = explode(".", $imgname);
-
-            if ($ext == "jpg" || $ext == "png") {
-                move_uploaded_file($tmp_name, $uploads_dir . $imgname);
-                mysqli_query($connection, "UPDATE products SET img = '" . $imgname . "' WHERE id = '" . mysqli_insert_id($connection) . "' LIMIT 1");
-            } else {
-                header("location: home.php?page=products&action=error");
-            }
+          $tmp_name = $_FILES["imgInput"]["tmp_name"];
+          $imgname = basename(mysqli_insert_id($connection) . "_" . $_FILES["imgInput"]["name"]);
+    
+          list($file, $ext) = explode(".", $imgname);
+    
+          if ($ext == "jpg" || $ext == "png") {
+            move_uploaded_file($tmp_name, $uploads_dir . $imgname);
+            mysqli_query($connection, "UPDATE products SET img = '" . $imgname . "' WHERE id = '" . mysqli_insert_id($connection) . "' LIMIT 1");
+          } else {
+            header("location: cms.php?page=articles&action=error");
+          }
         }
-
 
         header("location: home.php?page=products&action=product_posted");
 
@@ -63,7 +62,6 @@ if (isset($_POST['toevoegenForm'])) {
       model_type = '" . mysqli_real_escape_string($connection, $_POST['modelTypeInput']) . "',
       max_amount = '" . mysqli_real_escape_string($connection, $_POST['maxamountInput']) . "',
       storage_id = '" . mysqli_real_escape_string($connection, $_POST['storageIDInput']) . "',
-      img = '" . mysqli_real_escape_string($connection, $_POST['imginput']) . "',
       description = '" . mysqli_real_escape_string($connection, $_POST['descriptionInput']) . "'
       WHERE id = '" . $_POST['editId'] . "' LIMIT 1
       "
@@ -71,20 +69,20 @@ if (isset($_POST['toevoegenForm'])) {
 
         $uploads_dir = "../img/";
         if ($_FILES["imgInput"]["error"] == 0) {
-            $tmp_name = $_FILES["imgInput"]["tmp_name"];
-            $imgname = $_POST['editId'] . "_" . $_FILES["imgInput"]["name"];
-            if ((trim($_POST['oldImg']) != trim($imgname)) && trim($imgname) != "") {
-
-                unlink("../img/" . $_POST['oldImg']);
-
-                list($file, $ext) = explode(".", $imgname);
-                if ($ext == "jpg" || $ext == "PNG") {
-                    move_uploaded_file($tmp_name, $uploads_dir . $imgname);
-                    mysqli_query($connection, "UPDATE products SET img = '" . $imgname . "' WHERE id = '" . $_POST['editId'] . "' LIMIT 1");
-                } else {
-                    header("location: home.php?page=products&action=error");
-                }
+          $tmp_name = $_FILES["imgInput"]["tmp_name"];
+          $imgname = $_POST['editId'] . "_" . $_FILES["imgInput"]["name"];
+          if ((trim($_POST['oldImg']) != trim($imgname)) && trim($imgname) != "") {
+    
+            unlink("../img/".$_POST['oldImg']); 
+    
+            list($file, $ext) = explode(".", $imgname);
+            if ($ext == "jpg" || $ext == "png") {
+              move_uploaded_file($tmp_name, $uploads_dir . $imgname);
+              mysqli_query($connection, "UPDATE products SET img = '" . $imgname . "' WHERE id = '" . $_POST['editId'] . "' LIMIT 1");
+            } else {
+              header("location: cms.php?page=products&action=error");
             }
+          }
         }
 
 
@@ -162,7 +160,7 @@ else {
                     <td>
                         <div>
                             <label for="max">Maximale leen aantal:</label>
-                            <input id="max" type="number" name="maxmountInput" value="<?= $maxamountInput; ?>">
+                            <input id="max" type="number" name="maxamountInput" value="<?= $maxamountInput; ?>">
                         </div>
                     </td>
                 </tr>
@@ -176,7 +174,7 @@ else {
                     <td>
                         <div>
                             <label for="heroimg">Foto:</label>
-                            <input class="imginput" type="hidden" name="oldImg" value="<?= $imgInput; ?>">
+                            <input type="hidden" name="oldImg" value="<?= $imgInput; ?>">
                             <input class="imginput" id="heroimg" type="file" name="imgInput">
                         </div>
                     </td>
@@ -185,7 +183,7 @@ else {
         </table>
         <div class="description">
             <label for="description">beschrijving:</label>
-            <textarea name="descriptionInput" value="<?= $imgInput; ?>" id="description"></textarea>
+            <textarea name="descriptionInput" id="description"><?= $descriptionInput; ?></textarea>
         </div>
         <div class="button-center">
             <input class="button post-btn" value="product toevoegen / aanpassen" type="submit">
@@ -201,5 +199,5 @@ else {
 </div>
 
 <footer>
-    <link rel="stylesheet" href="./css/addproducts.css">
+    <link rel="stylesheet" href="./css/addEdit.css">
 </footer>
