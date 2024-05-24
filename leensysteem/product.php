@@ -54,10 +54,10 @@ else {
           <p>hoeveel wil je er lenen?</p>
           <form action="?page=index.php" name="add_to_cart" method="post">
             <input name="add_to_cart" type="hidden" value="1">
-            <input name="hidden_id" type="hidden" value="<?php echo $id?>">
-            <input name="hidden_name" type="hidden" value="<?php echo $name?>">
-            <input name="hidden_model" type="hidden" value="<?php echo $modelType?>">
-            <input type="number" value="1" min="1" name="quantity">
+            <input name="hidden_id" type="hidden" value="<?php echo $id ?>">
+            <input name="hidden_name" type="hidden" value="<?php echo $name ?>">
+            <input name="hidden_model" type="hidden" value="<?php echo $modelType ?>">
+            <input class="hoeveel-input" type="number" value="1" min="1" name="quantity">
 
         </div>
       </div>

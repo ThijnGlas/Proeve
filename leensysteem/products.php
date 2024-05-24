@@ -1,4 +1,5 @@
 <div class="middleSection-container">
+<div class="middleSection">
     <div class="productCard-container">
         <?php
         //in deze if statement check ik of er een post en of de post niet leeg is
@@ -8,7 +9,6 @@
             if (mysqli_num_rows($productsFromDatabase) == 0) {
                 header("location: ?page=products&notfound=1");
                 $productsFromDatabase = mysqli_query($connection, "SELECT * FROM products ORDER BY id DESC");
-
             }
         } else {
             //als er niks is ingetypt krijg je alle artikels te zien
@@ -17,21 +17,27 @@
         //met deze while krijg ik alle artikels uit de database in een tabel. Ook staan er twee buttons in per row deze button geven een page en een id mee, in de files addarticles en deletearticles zie je wat er mee gedaan word
         while ($row = mysqli_fetch_array($productsFromDatabase)) {
             echo "
-            <a href=\"?page=product&id=".$row['id']."\">
-                <div class=\"productCard\" 
-                style=\"background-image: url(./img/".$row['img']."); background-repeat: no-repeat; background-size: cover;\">
+            <a class=\"atag\"href=\"?page=product&id=" . $row['id'] . "\">
+                <div class=\"productCard\">
+                <div class=\"productCardBackground\" style=\"background-image: url(./img/" . $row['img'] . "); background-repeat: no-repeat; background-size: cover;\"></div>
+                <div class=\"bottom-container\"> 
+                <div>
                   <p>" . $row['name'] . "</p>
                   <p>" . $row['model_type'] . "</p>
+                  </div>
                   <div class=\"productCardImage-container\">
-                    <img src=\"./img/blackarrow.png\" alt=\"\">
+                    <div class=\"background\"></div>
                   </div>
                 </div>
-            </a>";
+            </a>
+            </div>";
         }
         ?>
 
-</div>
+    </div>
 
+</div>
+</div>
 <footer>
     <link rel="stylesheet" href="./css/products.css">
 </footer>

@@ -89,7 +89,7 @@ function getProductsShoppingcart()
     } else {
         echo "
         <tr>
-            <td><p>u heeft geen producten in uw winkewagen</p></td>
+            <td><p class=\"geen\" style=\"text-align: center;\">u heeft geen producten in uw winkewagen</p></td>
         </tr>";
 
     }

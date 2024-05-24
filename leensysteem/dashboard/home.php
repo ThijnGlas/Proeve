@@ -61,6 +61,9 @@ updateborrow();
                 <a href="?page=turnins">
                     <li>inleveren</li>
                 </a>
+                <a href="?page=beschikbaarheid">
+                    <li>Beschikbaarheid</li>
+                </a>
             </ul>
             <div class="buttons_user">
                 <div class="user">

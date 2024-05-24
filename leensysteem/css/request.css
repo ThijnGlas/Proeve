@@ -1,67 +1,114 @@
-.form-container{
+.form-container {
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
-}
-
-.formulier {
+    height: 80%;
+  }
+  
+  .formulier {
     background: #f2f2f2f2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
-    height: 45rem;
-    font-size: 1.6rem;
-}
-
-.formulier form{
+    justify-content: center;
+    width: 90rem;
+    height: 66rem;
+    font-size: 5rem;
+  }
+  
+  .formulier form {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-}
-
-.formLabel-container{
+  }
+  
+  .formLabel-container {
     display: flex;
     flex-direction: column;
-}
-
-.formLabel-container input{
+    font-size: 4rem;
+  }
+  
+  .formLabel-container input {
     border: none;
-    height: 3.6rem;
-    width: 40rem;
-    margin-top: 1rem;
-    font-size: 1.6rem;
-    padding-left: 1rem;
-}
-
-.button-container{
+    height: 5.76rem;
+    width: 64rem;
+    margin-top: 1.6rem;
+    font-size: 2.56rem;
+    padding-left: 1.6rem;
+  }
+  
+  .button-container {
     display: flex;
     justify-content: center;
-}
-
-.button {
-    margin-top: 2rem;
+  }
+  
+  .button {
+    margin-top: 3.2rem;
     background-color: #ff01e6;
     border: none;
-    height: 50px;
-    width: 230px;
+    height: 5rem;
+    width: 23rem;
     position: relative;
     font-size: 25px;
     color: white;
-}
-
-.button:hover {
+  }
+  
+  .button:hover {
     background-color: white;
     color: #ff01e6;
-    border: 2px solid #ff01e6;
+    border: 0.2rem solid #ff01e6;
     transition: 0.5s;
     cursor: pointer;
-}
-.button:active {
+  }
+  
+  .button:active {
     background-color: white;
     color: #ff01e6;
-    border: 2px solid #ff01e6;
+    border: 0.2rem solid #ff01e6;
     transition: 0.5s;
     cursor: pointer;
-}
+  }
+  
+  @media only screen and (min-width: 1101px) {
+    .form-container {
+      height: 50%;
+    }
+  
+    .formulier {
+      height: 56rem;
+      width: 85rem;
+    }
+  
+    body {
+      overflow: hidden;
+    }
+  }
+  
+  @media only screen and (max-width: 950px) {
+    .formulier {
+      width: 60rem;
+    }
+  
+    .formLabel-container input {
+      width: 50rem;
+    }
+  }
+  
+  @media only screen and (max-width: 650px) {
+    .formLabel-container {
+      display: flex;
+      flex-direction: column;
+      font-size: 3rem;
+    }
+    .formulier {
+      width: 34rem;
+      height: 44rem;
+    }
+  
+    .formLabel-container input {
+      margin-top: 0;
+      width: 25rem;
+      height: 4rem;
+    }
+  }
+  
