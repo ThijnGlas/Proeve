@@ -1,0 +1,82 @@
+.mainsection{
+    height: 15rem;
+    display: flex;
+    gap: 10rem;
+}
+
+.dropdown{
+    font-size: 2rem;
+    color: black;
+    border-radius: 0;
+    border: none;
+    padding: 1rem;
+}
+
+
+#beheerder{
+    color: black;
+}
+
+.selector{
+    color: black;
+}
+
+.input{
+    color: black;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+
+
+p{
+    display: inline-block;
+}
+
+.labels{
+    color: black;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.dagen-container{
+    background: #d6d6d6;
+    width: 80rem;
+}
+
+.day-container{
+    width: 14rem;
+}
+
+.dagen{
+    display: none;
+}
+
+.selection-container{
+    padding: 4rem;
+}
+
+.border{
+    padding: 2rem;
+    background-color: white;
+    display: flex;
+    gap: 2rem;
+    width: 70rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.submitButton{
+    width: 10rem;
+    background-color: grey;
+    height: 4rem;
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.label{
+    display: block;
+    padding: 0;
+}

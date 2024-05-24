@@ -7,8 +7,8 @@
     <div class="formulier">
         <h2>uw gegevens</h2>
         <form action="index.php" name="requestForm" method="post">
-        <input name="requestForm" type="hidden" value="1">
-        <div class="formLabel-container">
+            <input name="requestForm" type="hidden" value="1">
+            <div class="formLabel-container">
                 <label for="name">naam:</label>
                 <input type="text" id="name" name="nameInput">
             </div>

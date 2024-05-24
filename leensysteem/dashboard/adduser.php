@@ -144,7 +144,7 @@ else {
             <?php 
                 if($trashcan === 1){
                     echo"            
-                    <a href=\"?page=deleteproduct&id=".$editId."\"><img src=\"./img/trashcan.png\" alt=\"\"></a>
+                    <a href=\"?page=deleteuser&id=".$editId."\"><img src=\"./img/trashcan.png\" alt=\"\"></a>
                     ";
                 }
             ?>
