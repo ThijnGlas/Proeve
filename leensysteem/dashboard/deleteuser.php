@@ -10,8 +10,8 @@ $deleteId = $_GET['id'];
 
 //ik kijk of er een post is van de delete form als dat zo is doe ik via een query de row met het $deleteid verwijderen daarna stuur ik hem terug naar de vorige pagina en geef een action message mee
 if(isset($_POST['deleteArticle'])){
-    mysqli_query($connection, "DELETE FROM products WHERE id = ".$deleteId."");
-    header("location: home.php?page=products&action=product_deleted");
+    mysqli_query($connection, "DELETE FROM users WHERE id = ".$deleteId."");
+    header("location: home.php?page=users&action=product_deleted");
 }
 
 
@@ -20,7 +20,7 @@ if(isset($_POST['deleteArticle'])){
 ?>
 
 <div class="delete">
-    <h2>weet u zeker dat u artikel:
+    <h2>weet u zeker dat u gerbuiker:
         <?= $deleteId ?> wilt verwijderen?
     </h2>
     <form method="post" name="deleteArticle">

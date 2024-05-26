@@ -32,6 +32,8 @@ if (array_key_exists('action', $_GET)) {
     }
 }
 
+updateborrow();
+
 ?>
 <html>
 
@@ -56,10 +58,12 @@ if (array_key_exists('action', $_GET)) {
                 <a href="?page=users">
                     <li>Gebruikers</li>
                 </a>
-                <a href="?page=categories">
-                    <li>Categorieën</li>
+                <a href="?page=turnins">
+                    <li>inleveren</li>
                 </a>
-
+                <a href="?page=beschikbaarheid">
+                    <li>Beschikbaarheid</li>
+                </a>
             </ul>
             <div class="buttons_user">
                 <div class="user">

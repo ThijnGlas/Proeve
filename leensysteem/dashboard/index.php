@@ -11,7 +11,7 @@ require("functions.php");
  $pass =  hash('sha256', "admin");  
 
  //hier zet ik de dbconnect functie in een $connection variable dit doe ik zodat ik hem makkelijk kan oproepen
- $connection = dbconnect('c5831Leensysteem');
+ $connection = dbconnect('c4993aps2');
 
 //dit is de if statement die ik check om te kunnen inloggen in deze if statement geef ik cookies mee waar belangrijke informatie in word gezet zoals een session id
 //eerst check ik of er een post is gemaakt door isset te gebruiken

@@ -1,0 +1,137 @@
+@font-face {
+    font-family: Berthold;
+    src: url(../dashboard/css/fonts/BERTHOLD.TTF);
+  }
+  
+  * {
+    font-size: 62.5%;
+    font-family: "Berthold";
+  }
+  
+  a {
+    all: unset;
+  }
+  
+  Body {
+    background-color: black;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navBar {
+    display: flex;
+    flex-direction: row;
+    margin: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbarA {
+    cursor: pointer;
+  }
+  
+  .navbarB {
+    cursor: pointer;
+  }
+
+  body .navBar .navBarRight .searchBar form .id-zoek {
+    width: 22rem;
+    height: 80%;
+    border-radius: 100px;
+    background-image: url(../img/magnifying-glass.png);
+    background-size: auto 50%;
+    font-size: 1.6rem;
+    text-indent: 60px;
+    color: #000;
+    background-position: 10px 50%;
+    background-repeat: no-repeat;
+  }
+  
+  .responsiveLogo{
+    display: none;
+  }
+
+  .logo-container {
+    display: none;
+  }
+  
+  .navBarLogo {
+    max-width: 10rem;
+  }
+  
+  .navBarRight {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  body .navBar .message {
+    width: 30vw;
+    height: 50px;
+    color: #fff;
+    font-size: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  body .navBar .succes-msg {
+    background-color: #3d925a;
+  }
+  
+  body .navBar .remove-msg {
+    background-color: #b91f1f;
+  }
+  
+  body .navBar .clear-msg {
+    background-color: #567189;
+  }
+  
+  .searchBarTextarea {
+    border: none;
+    resize: none;
+  }
+  
+  .main{
+    min-height: 100vh;
+  }
+  
+  .footer {
+    background-color: #d9d9d9;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 2.2rem;
+    position: sticky;
+    bottom: 0;
+    float: right;
+  }
+  
+  @media (max-width: 600px) {
+  
+    .navbarA {
+      display: none;
+    }
+  
+    .responsiveLogo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+
+    .logo-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 1rem;
+    }
+    .navBar {
+      justify-content: center;
+    }
+  
+    body .navBar .navBarRight .searchBar form .id-zoek {
+      width: 20rem;
+    }
+  }
