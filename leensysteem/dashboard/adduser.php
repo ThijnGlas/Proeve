@@ -4,7 +4,7 @@
 require_once ("functions.php");
 
 //hier zet ik de dbconnect functie in een $connention variable dit doe ik zodat ik hem makkelijk kan oproepen
-$connection = dbconnect("c5831Leensysteem");
+$connection = dbconnect("c4993aps2");
 
 
 //eerst check ik of er een post is gemaakt.

@@ -40,6 +40,46 @@ function check_login($user_id, $session, $ipv4)
 
 }
 
+function displayBeheerder(){
+    $connection = dbconnect("c5831Leensysteem");
+
+    $day = date("l");
+    
+
+    // Controleer of de dagkolom bestaat in de database
+    $sql = 'SHOW COLUMNS FROM availabilities LIKE "'.$day.'"';
+    $result = mysqli_query($connection, $sql);
+    
+    if(mysqli_num_rows($result) > 0) {
+        $sql = 'SELECT * FROM availabilities';
+        $result = mysqli_query($connection, $sql);
+        
+        if($result) {
+            while($row = mysqli_fetch_assoc($result)){
+                if($row[$day]){
+                    $id = $row['Fk_beheerder_Id'];
+                    $sql2 = "SELECT * FROM beheerder WHERE id='$id'";
+                    $result2 = mysqli_query($connection, $sql2);
+                    if($result2){
+                        $row2 = mysqli_fetch_assoc($result2);
+                        echo $row2['Naam'] . "<br>";
+                    } else {
+                        echo "Error in query: " . mysqli_error($connection);
+                    }
+                }
+            }
+        } else {
+            echo "Error in query: " . mysqli_error($connection);
+        }
+    } else {
+        echo "Column $day does not exist in availabilities table.";
+    }
+
+    // Verbinding met de database sluiten
+    mysqli_close($connection);
+}
+
+
 //met deze functie maak ik een simpele string aan die ik mee kan geven als session id dit doe ik met random
 function getRandomString()
 {
@@ -202,7 +242,28 @@ function verstuur_mail($name, $schoolnumber, $returndate, $action ) {
     mail($ontvanger, $onderwerp, $bericht, $headers);
 }
 
+function turnin()
+{
+    $connection = dbconnect("c5831Leensysteem");
 
+    $get_borrow = mysqli_query($connection, "SELECT * FROM borrow WHERE id = '" . mysqli_real_escape_string($connection, $_POST['id']) . "' LIMIT 1") or die(mysqli_error($connection));
+
+    if ($borrow = mysqli_fetch_assoc($get_borrow)) {
+        $name = $borrow['name'];
+        $schoolnumber = $borrow['schoolnumber'];
+    }
+
+    if (isset($_POST['turninForm'])) {
+        if (isset($_POST['accepted'])) {
+                mysqli_query(
+                    $connection,
+                    "UPDATE borrow SET 
+                    date_returned = '" . gmdate('y-m-d') . "' 
+                    WHERE id = '" . mysqli_real_escape_string($connection, $_POST['id']) . "' LIMIT 1"
+                ) or die(mysqli_error($connection));
+            }
+        } 
+    }
 
 
 ?>

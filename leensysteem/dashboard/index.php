@@ -8,8 +8,6 @@ require("functions.php");
  //hier word een error message variable aangemaakt die aangepast word zodat er gemeld word wat er mis is
  $error_message = "";
  
- $pass =  hash('sha256', "admin");  
-
  //hier zet ik de dbconnect functie in een $connection variable dit doe ik zodat ik hem makkelijk kan oproepen
  $connection = dbconnect('c5831Leensysteem');
 

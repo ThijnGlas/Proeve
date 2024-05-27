@@ -124,3 +124,8 @@
     justify-content: flex-end;
     gap: 2rem;
   }
+
+  .aantalSpacer{
+    color: #000;
+    font-size: 2.2rem;
+  }    

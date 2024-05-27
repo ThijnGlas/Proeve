@@ -4,6 +4,7 @@ nav{
     width: 60%;
     justify-content: space-between;
     margin-bottom: 40px;
+    gap: 2rem;
 }
 
 nav h1{ 
@@ -30,13 +31,47 @@ nav a:active{
     background-color: hsl(137, 17%, 35%);
 }
 
+nav a button{
+    width: 100%;
+    height: 50px;
+    background-color: #78A083;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border: none;
+}
+
+nav a button:hover{
+    background-color: hsl(137, 17%, 45%);
+}
+nav a button:active{
+    background-color: hsl(137, 17%, 35%);
+}
+
 nav form{
     width: 50%;
     height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav form button{
+    width: 30rem;
+    height: 50px;
+    background-color: #78A083;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+    cursor: pointer;
+    border: none;
 }
 
 nav form .id-zoek{
-    width: 100%;
+    width: 30rem;
     height: 100%;
     border-radius: 100px;
     background-image: url(../img/loop.png);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Gegenereerd op: 24 mei 2024 om 16:28
+-- Gegenereerd op: 27 mei 2024 om 11:22
 -- Serverversie: 5.5.68-MariaDB
 -- PHP-versie: 5.6.5
 
@@ -41,9 +41,9 @@ CREATE TABLE IF NOT EXISTS `availabilities` (
 --
 
 INSERT INTO `availabilities` (`id`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Fk_beheerder_Id`) VALUES
-(1, 0, 0, 0, 0, 0, 3),
+(1, 1, 0, 0, 0, 0, 3),
 (17, 1, 1, 1, 1, 1, 83),
-(18, 1, 1, 1, 1, 1, 84);
+(18, 0, 1, 1, 1, 1, 84);
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `borrow` (
   `date_returned` date NOT NULL,
   `accepted` int(11) NOT NULL,
   `declined` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `borrow`
@@ -94,14 +94,15 @@ INSERT INTO `borrow` (`id`, `name`, `schoolnumber`, `products`, `date_requested`
 (7, '2', 2, '[{"item_id":"10","item_name":"Temperature & Humidity sensor","item_price":null,"item_quantity":"1"},{"item_id":"9","item_name":"Resistor","item_price":null,"item_quantity":"1"}]', '2015-05-24', '0000-00-00', '0000-00-00', '0000-00-00', 0, 0),
 (13, '2', 2, '[{"item_id":"12","item_name":"NodeMCU","item_quantity":"1"},{"item_id":"11","item_name":"USB cable","item_quantity":"1"}]', '2015-05-24', '0000-00-00', '0000-00-00', '0000-00-00', 0, 0),
 (14, '2', 2, '[{"item_id":"12","item_name":"NodeMCU","item_quantity":"1"},{"item_id":"11","item_name":"USB cable","item_quantity":"1"}]', '2015-05-24', '0000-00-00', '0000-00-00', '0000-00-00', 0, 0),
-(15, 'poep', 36009, '[{"item_id":"10","item_name":"Temperature & Humidity sensor","item_quantity":"1"}]', '2015-05-24', '0000-00-00', '2024-05-31', '0000-00-00', 1, 0),
-(16, 'dwawad', 2, '[{"item_id":"11","item_name":"USB cable","item_quantity":"1"}]', '2016-05-24', '0000-00-00', '2024-05-24', '0000-00-00', 0, 1),
+(15, 'poep', 36009, '[{"item_id":"10","item_name":"Temperature & Humidity sensor","item_quantity":0}]', '2015-05-24', '0000-00-00', '2024-05-31', '2024-05-27', 1, 0),
+(16, 'dwawad', 2, '[{"item_id":"11","item_name":"USB cable","item_quantity":"1"}]', '2016-05-24', '0000-00-00', '2024-05-24', '2024-05-27', 0, 1),
 (17, 'test', 13, '[{"item_id":"11","item_name":"USB cable","item_quantity":"1"}]', '2024-05-16', '0000-00-00', '2024-05-17', '0000-00-00', 0, 1),
 (18, 'thijn', 30639, '[{"item_id":"11","item_name":"USB cable","item_quantity":"1"},{"item_id":"9","item_name":"Resistor","item_quantity":"1"}]', '2024-05-23', '0000-00-00', '2024-05-31', '0000-00-00', 1, 0),
 (19, 'thijn', 30639, '[{"item_id":"8","item_name":"Resistor","item_quantity":"1"},{"item_id":"9","item_name":"Resistor","item_quantity":"1"}]', '2024-05-23', '0000-00-00', '2024-05-30', '0000-00-00', 1, 0),
 (20, 'thijn1', 30639, '[{"item_id":"12","item_name":"NodeMCU","item_quantity":"1"},{"item_id":"11","item_name":"USB cable","item_quantity":"1"},{"item_id":"10","item_name":"Temperature & Humidity sensor","item_quantity":"1"}]', '2024-05-23', '0000-00-00', '0000-00-00', '0000-00-00', 0, 1),
-(21, 'sarah', 30639, '[{"item_id":"11","item_name":"USB cable","item_quantity":"1"}]', '2024-05-24', '0000-00-00', '2024-06-24', '0000-00-00', 1, 0),
-(22, 'test ', 3232, '[{"item_id":"11","item_name":"USB cable","item_quantity":"1"}]', '2024-05-24', '0000-00-00', '0000-00-00', '0000-00-00', 0, 0);
+(21, 'sarah', 30639, '[{"item_id":"11","item_name":"USB cable","item_quantity":"1"}]', '2024-05-24', '0000-00-00', '2024-06-24', '2024-05-27', 1, 0),
+(22, 'test ', 3232, '[{"item_id":"11","item_name":"USB cable","item_quantity":"1"}]', '2024-05-24', '0000-00-00', '0000-00-00', '0000-00-00', 0, 0),
+(23, 'test69', 30639, '[]', '2024-05-27', '0000-00-00', '2024-06-03', '2024-05-27', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -185,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `voornaam`, `achternaam`, `email`, `role_id`, `ipv4`, `ipv6`, `attempts`, `lastlogin`, `locked`, `session`, `lastactivity`) VALUES
-(1, 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'Thijn', 'Glas', 'thijnglas@gmail.com', 5, '127.0.0.1', '', 0, '2023-04-11 16:57:02', 0, 'WkJy0cX7gN', '2023-04-11 16:57:02'),
+(1, 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 'Thijn', 'Glas', 'thijnglas@gmail.com', 5, '127.0.0.1', '', 0, '2023-04-11 16:57:02', 0, 'sA45HrHuW7', '2023-04-11 16:57:02'),
 (11, 'test', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 'test', 'tset', 'test@test.nl', 2, '', '', 0, '0000-00-00 00:00:00', 0, '', '0000-00-00 00:00:00');
 
 --
@@ -255,7 +256,7 @@ ALTER TABLE `beheerder`
 -- AUTO_INCREMENT voor een tabel `borrow`
 --
 ALTER TABLE `borrow`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT voor een tabel `info`
 --

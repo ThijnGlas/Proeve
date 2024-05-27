@@ -32,6 +32,10 @@
     cursor: pointer;
   }
   
+  .navbarB {
+    cursor: pointer;
+  }
+
   body .navBar .navBarRight .searchBar form .id-zoek {
     width: 22rem;
     height: 80%;
@@ -45,6 +49,10 @@
     background-repeat: no-repeat;
   }
   
+  .responsiveLogo{
+    display: none;
+  }
+
   .logo-container {
     display: none;
   }
@@ -102,21 +110,23 @@
   
   @media (max-width: 600px) {
   
-    .navBarLogo {
+    .navbarA {
       display: none;
     }
   
+    .responsiveLogo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+
     .logo-container {
       width: 100%;
       display: flex;
       justify-content: center;
       margin: 1rem;
     }
-  
-    #navBarLogo {
-      display: block;
-    }
-  
     .navBar {
       justify-content: center;
     }
