@@ -29,6 +29,18 @@
     width: 40rem;
   }
   
+  .formulier a{
+    font-size: 4rem;
+  }
+
+  .formulier h2 {
+    font-size: 4rem;
+  }
+
+  .geen{
+    font-size: 3rem;
+  }
+
   .spacer {
     width: 80rem;
     margin-left: 0.96rem;
@@ -226,15 +238,18 @@
       padding-top: 1rem;
     }
   
-    .formulier a{
-      
-      font-size: 4rem;
-    }
-  
-    .formulier h2 {
-      font-size: 20%;
-    }
-  
+     
+  .formulier a{
+    font-size: 4rem;
+  }
+
+  .formulier h2 {
+    font-size: 4rem;
+  }
+
+  .geen{
+    font-size: 3rem;
+  }
     .spacer {
       margin-right: 0rem;
       margin: 0;

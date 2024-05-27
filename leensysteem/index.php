@@ -2,25 +2,9 @@
 
 //hier haal ik een functie op die ik gebruik om een database connectie te maken
 require ("./dashboard/functions.php");
-function displayBeheerder()
-{
-    include ('dbconection.php');
-    $day = date("l");
-    $sql = "SELECT $day,Fk_beheerder_Id FROM availabilities WHERE $day = 1";
-    $result = mysqli_query($conn, $sql);
-    while ($row = mysqli_fetch_assoc($result)) {
-        $id = $row['Fk_beheerder_Id'];
-        $sql2 = "SELECT * FROM beheerder WHERE id='$id'";
-        $result2 = mysqli_query($conn, $sql2);
-        while ($row2 = mysqli_fetch_assoc($result2)) {
-            echo $row2['Naam'];
-            echo "<br>";
-        }
-    }
-}
 
 //hier zet ik de dbconnect functie in een $connention variable dit doe ik zodat ik hem makkelijk kan oproepen
-$connection = dbconnect("c5831Leensysteem");
+$connection = dbconnect("c4993aps2");
 
 //hier maak ik een lege variable aan die ik aanpas via een get zo kan ik berichten meegeven over wat er gebeurd
 $message = "";
@@ -137,9 +121,11 @@ storeToBorrowed();
 </head>
 
 <body>
+    <div class="responsiveLogo">
+        <a class="navbarB" href="?page=products"><img class="navBarLogo" src="./img/primary-logo.png" alt="Mediacollege-Logo" /></a>
+    </div>
     <div class="navBar">
-        <a class="navbarA" href="?page=products"><img class="navBarLogo" src="./img/primary-logo.png"
-                alt="Mediacollege-Logo" /></a>
+        <a class="navbarA" href="?page=products"><img class="navBarLogo" src="./img/primary-logo.png" alt="Mediacollege-Logo" /></a>
         <?= $message ?>
         <div class="navBarRight">
             <a href="index.php?page=shoppingcart"><img src="./img/cart-shopping-solid 2.png"

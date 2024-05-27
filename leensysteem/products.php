@@ -21,7 +21,7 @@
                 <div class=\"productCard\">
                 <div class=\"productCardBackground\" style=\"background-image: url(./img/" . $row['img'] . "); background-repeat: no-repeat; background-size: cover;\"></div>
                 <div class=\"bottom-container\"> 
-                <div>
+                <div class=\"textEdit\">
                   <p>" . $row['name'] . "</p>
                   <p>" . $row['model_type'] . "</p>
                   </div>
