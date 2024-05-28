@@ -19,13 +19,11 @@ if ($id) {
             $sql = "SELECT * FROM products WHERE id = $product_id";
             $result = $connection->query($sql);
 
-            if ($result->num_rows > 0) {
+            if ($result && $result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     $row['quantity'] = $product_quantity;
                     $products_details[] = $row;
                 }
-            } else {
-                echo "Geen producten gevonden voor product ID: $product_id<br>";
             }
         }
     } else {
@@ -37,20 +35,18 @@ if ($id) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_quantities'])) {
     $updated_quantities = $_POST['product_quantities'];
+    $updated_products_array = [];
 
     foreach ($products_array as $key => &$product) {
         $product_id = $product['item_id'];
-        if (isset($updated_quantities[$product_id])) {
-            $product['item_quantity'] -= (int)$updated_quantities[$product_id];
-            if ($product['item_quantity'] <= 0) {
-                unset($products_array[$key]);
-            }
+        $new_quantity = isset($updated_quantities[$product_id]) ? (int)$updated_quantities[$product_id] : $product['item_quantity'];
+        if ($new_quantity > 0) {
+            $product['item_quantity'] = $new_quantity;
+            $updated_products_array[] = $product;
         }
     }
 
-    $products_array = array_values($products_array);
-
-    $updated_products_json = json_encode($products_array);
+    $updated_products_json = json_encode($updated_products_array);
 
     $update_query = "UPDATE borrow SET 
         products = '" . mysqli_real_escape_string($connection, $updated_products_json) . "', 
@@ -68,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_quantities'])
 <div class="inlevering-container">
 
     <div class="header-container">
-        <p>welke spullen missen er van de geleende spullen?</p>
+        <p>welke spullen zijn er nog van de geleende spullen?</p>
         <p>inlevering van: <?= $name ?></p>
     </div>
     <footer class="content-container">
@@ -86,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_quantities'])
                             <img src="../img/<?php echo $product['img']; ?>" alt="<?php echo $product['name']; ?>">
                             <p><?php echo $product['name']; ?></p>
                             <p><?php echo $product['model_type']; ?></p>
-                            <input type="number" name="product_quantities[<?php echo $product['id']; ?>]" placeholder="0" class="aantalSpacer">
+                            <input type="number" name="product_quantities[<?php echo $product['id']; ?>]" placeholder="0" class="aantalSpacer" value="<?php echo $product['quantity']; ?>">
                         </div>
                     <?php endforeach; ?>
                 <?php else: ?>

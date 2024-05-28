@@ -2,6 +2,9 @@
 <div class="middleSection">
     <div class="productCard-container">
         <?php
+ 
+
+
         //in deze if statement check ik of er een post en of de post niet leeg is
         if (isset($_POST['zoekenInput']) && trim($_POST['zoekenInput']) != "") {
             //in deze query kijk ik of er artikels zijn waarvan de titel of het id in de database staat als beide niet waar zijn krijg je een message met daarin artikel niet gevonden.
@@ -10,7 +13,22 @@
                 header("location: ?page=products&notfound=1");
                 $productsFromDatabase = mysqli_query($connection, "SELECT * FROM products ORDER BY id DESC");
             }
-        } else {
+        } 
+
+        elseif(array_key_exists('category', $_GET)){
+            $categoryId = $_GET['category'];
+            if ($categoryId == 1){
+                $productsFromDatabase = mysqli_query($connection, "SELECT * FROM products ORDER BY id DESC");
+            }
+            else{
+                $productsFromDatabase = mysqli_query($connection, "SELECT * FROM products WHERE category = $categoryId ORDER BY id DESC");
+
+            }
+        }
+        
+        
+        
+        else {
             //als er niks is ingetypt krijg je alle artikels te zien
             $productsFromDatabase = mysqli_query($connection, "SELECT * FROM products ORDER BY id DESC");
         }

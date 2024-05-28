@@ -140,7 +140,7 @@ else {
             </tbody>
         </table>
         <div class="button-center">
-            <input class="button post-btn" value="product toevoegen / aanpassen" type="submit">
+            <input class="button post-btn" value="gebruiker toevoegen / aanpassen" type="submit">
             <?php 
                 if($trashcan === 1){
                     echo"            

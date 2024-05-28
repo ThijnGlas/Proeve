@@ -93,6 +93,20 @@
     border: none;
     resize: none;
   }
+
+  .category{
+    color: #000;
+    height: 50px;
+    font-size: 2.2rem;
+    width: 300px;
+    text-indent: 5px;
+  }
+
+  .categoryoption{
+    text-indent: 5px;
+    color: #000;
+    font-size: 2.2rem;
+  }
   
   .main{
     min-height: 100vh;

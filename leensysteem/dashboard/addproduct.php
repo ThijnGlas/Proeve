@@ -20,14 +20,14 @@ if (isset($_POST['toevoegenForm'])) {
         mysqli_query(
             $connection,
             "INSERT INTO products 
-    (user_id, name, amount, model_type, max_amount, storage_id, img, description)
+    (user_id, name, amount, model_type, max_amount, category, img, description)
     values
     ('" . mysqli_real_escape_string($connection, $_COOKIE['user_id']) . "', 
     '" . mysqli_real_escape_string($connection, $_POST['nameInput']) . "', 
     '" . mysqli_real_escape_string($connection, $_POST['amountInput']) . "', 
     '" . mysqli_real_escape_string($connection, $_POST['modelTypeInput']) . "', 
     '" . mysqli_real_escape_string($connection, $_POST['maxamountInput']) . "', 
-    '" . mysqli_real_escape_string($connection, $_POST['storageIDInput']) . "', 
+    '" . mysqli_real_escape_string($connection, $_POST['categoryInput']) . "', 
     '" . mysqli_real_escape_string($connection, $_POST['imgInput']) . "', 
     '" . mysqli_real_escape_string($connection, $_POST['descriptionInput']) . "'
     )"
@@ -35,17 +35,17 @@ if (isset($_POST['toevoegenForm'])) {
 
         $uploads_dir = "../img/";
         if ($_FILES["imgInput"]["error"] == 0) {
-          $tmp_name = $_FILES["imgInput"]["tmp_name"];
-          $imgname = basename(mysqli_insert_id($connection) . "_" . $_FILES["imgInput"]["name"]);
-    
-          list($file, $ext) = explode(".", $imgname);
-    
-          if ($ext == "jpg" || $ext == "png") {
-            move_uploaded_file($tmp_name, $uploads_dir . $imgname);
-            mysqli_query($connection, "UPDATE products SET img = '" . $imgname . "' WHERE id = '" . mysqli_insert_id($connection) . "' LIMIT 1");
-          } else {
-            header("location: cms.php?page=articles&action=error");
-          }
+            $tmp_name = $_FILES["imgInput"]["tmp_name"];
+            $imgname = basename(mysqli_insert_id($connection) . "_" . $_FILES["imgInput"]["name"]);
+
+            list($file, $ext) = explode(".", $imgname);
+
+            if ($ext == "jpg" || $ext == "png") {
+                move_uploaded_file($tmp_name, $uploads_dir . $imgname);
+                mysqli_query($connection, "UPDATE products SET img = '" . $imgname . "' WHERE id = '" . mysqli_insert_id($connection) . "' LIMIT 1");
+            } else {
+                header("location: cms.php?page=articles&action=error");
+            }
         }
 
         header("location: home.php?page=products&action=product_posted");
@@ -57,11 +57,11 @@ if (isset($_POST['toevoegenForm'])) {
             $connection,
             "UPDATE products SET 
       user_id =  '" . mysqli_real_escape_string($connection, $_COOKIE['user_id']) . "', 
-      name = '" .  mysqli_real_escape_string($connection, $_POST['nameInput']) . "', 
+      name = '" . mysqli_real_escape_string($connection, $_POST['nameInput']) . "', 
       amount = '" . mysqli_real_escape_string($connection, $_POST['amountInput']) . "',
       model_type = '" . mysqli_real_escape_string($connection, $_POST['modelTypeInput']) . "',
       max_amount = '" . mysqli_real_escape_string($connection, $_POST['maxamountInput']) . "',
-      storage_id = '" . mysqli_real_escape_string($connection, $_POST['storageIDInput']) . "',
+      category = '" . mysqli_real_escape_string($connection, $_POST['categoryInput']) . "',
       description = '" . mysqli_real_escape_string($connection, $_POST['descriptionInput']) . "'
       WHERE id = '" . $_POST['editId'] . "' LIMIT 1
       "
@@ -69,20 +69,20 @@ if (isset($_POST['toevoegenForm'])) {
 
         $uploads_dir = "../img/";
         if ($_FILES["imgInput"]["error"] == 0) {
-          $tmp_name = $_FILES["imgInput"]["tmp_name"];
-          $imgname = $_POST['editId'] . "_" . $_FILES["imgInput"]["name"];
-          if ((trim($_POST['oldImg']) != trim($imgname)) && trim($imgname) != "") {
-    
-            unlink("../img/".$_POST['oldImg']); 
-    
-            list($file, $ext) = explode(".", $imgname);
-            if ($ext == "jpg" || $ext == "png") {
-              move_uploaded_file($tmp_name, $uploads_dir . $imgname);
-              mysqli_query($connection, "UPDATE products SET img = '" . $imgname . "' WHERE id = '" . $_POST['editId'] . "' LIMIT 1");
-            } else {
-              header("location: cms.php?page=products&action=error");
+            $tmp_name = $_FILES["imgInput"]["tmp_name"];
+            $imgname = $_POST['editId'] . "_" . $_FILES["imgInput"]["name"];
+            if ((trim($_POST['oldImg']) != trim($imgname)) && trim($imgname) != "") {
+
+                unlink("../img/" . $_POST['oldImg']);
+
+                list($file, $ext) = explode(".", $imgname);
+                if ($ext == "jpg" || $ext == "png") {
+                    move_uploaded_file($tmp_name, $uploads_dir . $imgname);
+                    mysqli_query($connection, "UPDATE products SET img = '" . $imgname . "' WHERE id = '" . $_POST['editId'] . "' LIMIT 1");
+                } else {
+                    header("location: cms.php?page=products&action=error");
+                }
             }
-          }
         }
 
 
@@ -102,7 +102,7 @@ if (array_key_exists('id', $_GET)) {
         $amountInput = $product['amount'];
         $modelTypeInput = $product['model_type'];
         $maxamountInput = $product['max_amount'];
-        $storageIDInput = $product['storage_id'];
+        $categoryInput = $product['category'];
         $imgInput = $product['img'];
         $descriptionInput = $product['description'];
     }
@@ -116,7 +116,7 @@ else {
     $amountInput = "";
     $modelTypeInput = "";
     $maxamountInput = "";
-    $storageIDInput = "";
+    $categoryInput = "";
     $imgInput = "";
     $descriptionInput = "";
 }
@@ -167,8 +167,20 @@ else {
                 <tr>
                     <td>
                         <div>
-                            <label for="storageID">Storage ID:</label>
-                            <input id="storageID" type="text" name="storageIDInput" value="<?= $storageIDInput; ?>">
+                            <label for="category">Categorieën:</label>
+                            <select class="category" name="categoryInput" id="category">
+                                <?php
+                                $get_categories = mysqli_query($connection, "SELECT id, name FROM categories ORDER BY id ASC");
+                                while ($gcat = mysqli_fetch_array($get_categories)) {
+                                    if ($categoryInput == $gcat['id']) {
+                                        $cat_selected = "SELECTED";
+                                    } else {
+                                        $cat_selected = "";
+                                    }
+                                    echo "<option class=\"categoryoption\"" . $cat_selected . " value=\"" . $gcat['id'] . "\">" . $gcat['name'] . "</option>";
+                                }
+                                ?>
+                            </select>
                         </div>
                     </td>
                     <td>
@@ -187,12 +199,12 @@ else {
         </div>
         <div class="button-center">
             <input class="button post-btn" value="product toevoegen / aanpassen" type="submit">
-            <?php 
-                if($trashcan === 1){
-                    echo"            
-                    <a href=\"?page=deleteproduct&id=".$editId."\"><img src=\"./img/trashcan.png\" alt=\"\"></a>
+            <?php
+            if ($trashcan === 1) {
+                echo "            
+                    <a href=\"?page=deleteproduct&id=" . $editId . "\"><img src=\"./img/trashcan.png\" alt=\"\"></a>
                     ";
-                }
+            }
             ?>
         </div>
     </form>

@@ -45,10 +45,10 @@ $connection = dbconnect("c4993aps2");
             while ($row = mysqli_fetch_array($productsFromDatabase)) {
                 echo "
                 <tr>
-                <td class=\"title\" colspan=\"2\"><p>" . $row['name'] . "</p></td>
-                <td ><p>" . $row['model_type'] . "</p></td>
-                <td ><p>" . $row['amount'] . "</p></td>
-                <td ><p>" . $row['id'] . "</p></td>
+                <td class=\"title\" colspan=\"2\"><a href=\"?page=addproduct&id=".$row['id']."\"><p>" . $row['name'] . "</p></a></td>
+                <td ><a href=\"?page=addproduct&id=".$row['id']."\"><p>" . $row['model_type'] . "</p></a></td>
+                <td ><a href=\"?page=addproduct&id=".$row['id']."\"><p>" . $row['amount'] . "</p></a></td>
+                <td ><a href=\"?page=addproduct&id=".$row['id']."\"><p>" . $row['id'] . "</p></a></td>
                 <td class=button-w><a href=\"?page=addproduct&id=".$row['id']."\"><img src=\"./img/arrow-r.png\" alt=\"\"></a>
                 </td>
                 </tr>";

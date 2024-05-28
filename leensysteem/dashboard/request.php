@@ -44,8 +44,12 @@ if ($id) {
 
 
 ?>
+<a href="?page=requests">
+  <p class="terug"><- terug</p>
+</a>
 <div class="inlevering-container">
 <?= $message ?>
+
 
     <div class="header-container">
         <p>aanvraag van <?php echo $name; ?></p>

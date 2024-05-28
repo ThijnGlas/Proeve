@@ -113,3 +113,14 @@
 .form-wrapper form .button-center input:active {
     background-color: hsl(306, 100%, 30%);
 }
+
+.category{
+    height: 35px;
+    font-size: 2.2rem;
+    color: #000;
+}
+
+.categoryoption{
+    font-size: 2.2rem;
+    color: #000;
+}

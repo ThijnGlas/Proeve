@@ -113,6 +113,8 @@ storeToBorrowed();
 
 ?>
 
+
+
 <html>
 
 <head>
@@ -122,12 +124,28 @@ storeToBorrowed();
 
 <body>
     <div class="responsiveLogo">
-        <a class="navbarB" href="?page=products"><img class="navBarLogo" src="./img/primary-logo.png" alt="Mediacollege-Logo" /></a>
+        <a class="navbarB" href="?page=products"><img class="navBarLogo" src="./img/primary-logo.png"
+                alt="Mediacollege-Logo" /></a>
     </div>
     <div class="navBar">
-        <a class="navbarA" href="?page=products"><img class="navBarLogo" src="./img/primary-logo.png" alt="Mediacollege-Logo" /></a>
+        <a class="navbarA" href="?page=products"><img class="navBarLogo" src="./img/primary-logo.png"
+                alt="Mediacollege-Logo" /></a>
         <?= $message ?>
         <div class="navBarRight">
+        <select class="category" name="categoryInput" id="category">
+    <option value="" disabled selected>Selecteer een categorie</option>
+    <?php
+    $get_categories = mysqli_query($connection, "SELECT id, name FROM categories ORDER BY id ASC");
+    while ($gcat = mysqli_fetch_array($get_categories)) {
+        if ($categoryInput == $gcat['id']) {
+            $cat_selected = "selected";
+        } else {
+            $cat_selected = "";
+        }
+        echo "<option class=\"categoryoption\" value=\"" . $gcat['id'] . "\" $cat_selected>" . $gcat['name'] . "</option>";
+    }
+    ?>
+</select>
             <a href="index.php?page=shoppingcart"><img src="./img/cart-shopping-solid 2.png"
                     alt="Shoppingcart-Icon" /></a>
             <div class="searchBar">
@@ -150,5 +168,11 @@ storeToBorrowed();
 
 
 </body>
+<script>
+document.getElementById("category").addEventListener("change", function() {
+    var categoryId = this.value; // Hier krijg je de waarde van de geselecteerde categorie
+    window.location.href = "index.php?page=products&category=" + categoryId; // Hier pas je de URL aan met de geselecteerde categorie
+});
+</script>
 
 </html>

@@ -49,20 +49,23 @@ turnin();
         </div>
         <div>
             <ul>
-                <a href="?page=requests">
-                    <li>Aanvragen</li>
-                </a>
                 <a href="?page=products">
                     <li>Producten</li>
                 </a>
-                <a href="?page=users">
-                    <li>Gebruikers</li>
+                <a href="?page=categories">
+                    <li>categories</li>
+                </a>
+                <a href="?page=requests">
+                    <li>Aanvragen</li>
                 </a>
                 <a href="?page=turnins">
                     <li>inleveren</li>
                 </a>
                 <a href="?page=beschikbaarheid">
                     <li>Beschikbaarheid</li>
+                </a>
+                <a href="?page=users">
+                    <li>Gebruikers</li>
                 </a>
             </ul>
             <div class="buttons_user">
@@ -71,9 +74,6 @@ turnin();
                     <p>
                         <?= $_COOKIE['firstname'], " ", $_COOKIE['lastname'] ?>
                     </p>
-                </div>
-                <div class="avail">
-                    <p>beschikbaar</p>
                 </div>
                 <div onclick="window.location.href='index.php';" class="logout">
                     <p>uitloggen</p>

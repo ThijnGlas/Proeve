@@ -10,11 +10,11 @@
             <input name="requestForm" type="hidden" value="1">
             <div class="formLabel-container">
                 <label for="name">naam:</label>
-                <input type="text" id="name" name="nameInput">
+                <input required type="text" id="name" name="nameInput">
             </div>
             <div class="formLabel-container">
                 <label for="number">studentennummer:</label>
-                <input type="number" id="number" name="numberInput">
+                <input required type="number" id="number" name="numberInput">
             </div>
             <div class="button-container">
                 <input type="submit" value="Stuur verzoek" class="button"></input>
