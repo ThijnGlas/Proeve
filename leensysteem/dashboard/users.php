@@ -10,7 +10,7 @@ $connection = dbconnect("c4993aps2");
 
 <nav>
     <h1>Gebruikers</h1>
-    <a href="?page=adduser">
+    <a class="groter" href="?page=adduser">
         <p>gebruiker toevoegen</p>
     </a>
     <form action="?page=users" method="post">
@@ -49,7 +49,7 @@ $connection = dbconnect("c4993aps2");
                 <td ><a href=\"?page=adduser&id=".$row['id']."\"></a></td>
                 <td ><a href=\"?page=adduser&id=".$row['id']."\"><p>" . $row['role_id'] . "</p></a></td>
                 <td ><a href=\"?page=adduser&id=".$row['id']."\"><p>" . $row['id'] . "</p></a></td>
-                <td class=button-w><a href=\"?page=adduser&id=".$row['id']."\"><img src=\"./img/arrow-r.png\" alt=\"\"></a>
+                <td class=button-w><a class=\"pijltjes\" href=\"?page=adduser&id=".$row['id']."\"><img src=\"./img/arrow-r.png\" alt=\"\"></a>
                 </td>
                 </tr>";
             }

@@ -65,7 +65,7 @@ $connection = dbconnect("c4993aps2");
                 <td class=\"title\" colspan=\"2\"><a href=\"?page=request&id=" . $row['id'] . "\"><p>" . $row['name'] . "</p></a></td>
                 <td ><a href=\"?page=request&id=" . $row['id'] . "\"><p>" . $row['schoolnumber'] . "</p></a></td>
                 <td ><a href=\"?page=request&id=" . $row['id'] . "\"><p>Aangevraagd op " . $row['date_requested'] . "</p></a></td>
-                <td class=button-w><a href=\"?page=request&id=" . $row['id'] . "\"><img src=\"./img/arrow-r.png\" alt=\"\"></a></td>
+                <td class=button-w><a class=\"pijltjes\" href=\"?page=request&id=" . $row['id'] . "\"><img src=\"./img/arrow-r.png\" alt=\"\"></a></td>
                 
                 </tr>
                 ";

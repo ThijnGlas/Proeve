@@ -47,7 +47,7 @@
             <tr>
                 <td><a href=\"?page=turnin&id=" . $row['id'] . "\"><p>" . $row['name'] . "</p></a></td>
                 <td><a href=\"?page=turnin&id=" . $row['id'] . "\"><p>" . $row['date_tobereturned'] . "</p></a></td>
-                <td class=button-w><a href=\"?page=turnin&id=" . $row['id'] . "\"><img src=\"./img/arrow-r.png\" alt=\"\"></a></td>
+                <td class=button-w><a class=\"pijltjes\" href=\"?page=turnin&id=" . $row['id'] . "\"><img src=\"./img/arrow-r.png\" alt=\"\"></a></td>
         </tr>";
             }
             ?>

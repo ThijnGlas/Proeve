@@ -10,7 +10,7 @@ $connection = dbconnect("c4993aps2");
 
 <nav>
     <h1>Producten</h1>
-    <a href="?page=addproduct">
+    <a class="groter" href="?page=addproduct">
         <p>product toevoegen</p>
     </a>
     <form action="?page=products" method="post">
@@ -49,7 +49,7 @@ $connection = dbconnect("c4993aps2");
                 <td ><a href=\"?page=addproduct&id=".$row['id']."\"><p>" . $row['model_type'] . "</p></a></td>
                 <td ><a href=\"?page=addproduct&id=".$row['id']."\"><p>" . $row['amount'] . "</p></a></td>
                 <td ><a href=\"?page=addproduct&id=".$row['id']."\"><p>" . $row['id'] . "</p></a></td>
-                <td class=button-w><a href=\"?page=addproduct&id=".$row['id']."\"><img src=\"./img/arrow-r.png\" alt=\"\"></a>
+                <td class=button-w><a class=\"pijltjes\" href=\"?page=addproduct&id=".$row['id']."\"><img src=\"./img/arrow-r.png\" alt=\"\"></a>
                 </td>
                 </tr>";
             }

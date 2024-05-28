@@ -7,7 +7,7 @@ if ($id) {
         $name = $borrow['name'];
         $schoolnummer = $borrow['schoolnumber'];
         $products = $borrow['products'];
-        
+
         $products_array = json_decode($products, true);
 
         $products_details = [];
@@ -35,13 +35,13 @@ if ($id) {
 
 ?>
 <a href="?page=turnins">
-  <p class="terug"><- terug</p>
+    <p class="terug"><- terug</p>
 </a>
 <div class="inlevering-container">
 
     <div class="header-container">
-        <p>Inlevering van <?= $name?></p>
-        <p>studentennummer: <?= $schoolnummer?></p>
+        <p>Inlevering van <?= $name ?></p>
+        <p>studentennummer: <?= $schoolnummer ?></p>
     </div>
     <footer class="content-container">
         <div class="products-container">
@@ -54,7 +54,9 @@ if ($id) {
             <?php if (!empty($products_details)):
                 foreach ($products_details as $product): ?>
                     <div class="products">
-                        <img src="../img/<?php echo $product['img']; ?>" alt="<?php echo $product['name']; ?>">
+                        <div>
+                            <img class="img" src="../img/<?php echo $product['img']; ?>" alt="<?php echo $product['name']; ?>">
+                        </div>
                         <p><?php echo $product['name']; ?></p>
                         <p><?php echo $product['model_type']; ?></p>
                         <p class="aantalSpacer"><?php echo $product['quantity']; ?></p>
@@ -65,18 +67,18 @@ if ($id) {
             <?php endif; ?>
         </div>
         <div class="footer-container">
-                <form action="home.php" name="turninForm" method="post">
-                    <input type="hidden" name="turninForm">
-                    <input type="hidden" name="id" value="<?= $id; ?>">
-            <div class="button-container">
-                <button type="submit" name="accepted" value="1" class="button">Accept</button>
-                <a href="?page=turninmissing&id=<?= $id; ?>" class="button">er mist iets</a>
-                </form>
-            </div>
+            <form action="home.php" name="turninForm" method="post">
+                <input type="hidden" name="turninForm">
+                <input type="hidden" name="id" value="<?= $id; ?>">
+                <div class="button-container-turnin">
+                    <button type="submit" name="accepted" value="1" class="button">accepteer</button>
+                    <a href="?page=turninmissing&id=<?= $id; ?>" class="button">er mist iets</a>
+            </form>
         </div>
+</div>
 
-    </footer>
+</footer>
 
-    <footer>
-        <link rel="stylesheet" href="./css/request.css">
-    </footer>
+<footer>
+    <link rel="stylesheet" href="./css/request.css">
+</footer>

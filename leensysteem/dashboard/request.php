@@ -66,7 +66,9 @@ if ($id) {
             <?php if (!empty($products_details)):
                 foreach ($products_details as $product): ?>
                     <div class="products">
-                        <img src="../img/<?php echo $product['img']; ?>" alt="<?php echo $product['name']; ?>">
+                        <div>
+                        <img class="img" src="../img/<?php echo $product['img']; ?>" alt="<?php echo $product['name']; ?>">
+                        </div>
                         <p><?php echo $product['name']; ?></p>
                         <p><?php echo $product['model_type']; ?></p>
                         <p class="aantalSpacer"><?php echo $product['quantity']; ?></p>

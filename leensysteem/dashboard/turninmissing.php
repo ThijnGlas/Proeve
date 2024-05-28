@@ -79,8 +79,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_quantities'])
                 <?php if (!empty($products_details)): ?>
                     <?php foreach ($products_details as $product): ?>
                         <div class="products">
-                            <img src="../img/<?php echo $product['img']; ?>" alt="<?php echo $product['name']; ?>">
-                            <p><?php echo $product['name']; ?></p>
+                        <div>
+                            <img class="img" src="../img/<?php echo $product['img']; ?>" alt="<?php echo $product['name']; ?>">
+                        </div>                            <p><?php echo $product['name']; ?></p>
                             <p><?php echo $product['model_type']; ?></p>
                             <input type="number" name="product_quantities[<?php echo $product['id']; ?>]" placeholder="0" class="aantalSpacer" value="<?php echo $product['quantity']; ?>">
                         </div>
@@ -91,8 +92,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_quantities'])
             </div>
             <div class="footer-container">
                 <input type="hidden" name="id" value="<?= $id; ?>">
-                <div class="button-container">
-                    <input type="submit" class="button" value="Verzenden">
+                <div class="button-container-turnin">
+                    <input type="submit" class="button" value="verstuur">
                     <a href="?page=turnin&id=<?= $id ?>" class="button">terug</a>
                 </div>
             </div>

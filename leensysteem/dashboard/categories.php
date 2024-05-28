@@ -10,7 +10,7 @@ $connection = dbconnect("c4993aps2");
 
 <nav>
     <h1>Categorieën</h1>
-    <a href="?page=addcategory">
+    <a class="groter" href="?page=addcategory">
         <p>Categorie toevoegen</p>
     </a>
     <form action="?page=products" method="post">
@@ -46,7 +46,8 @@ $connection = dbconnect("c4993aps2");
                 <td class=\"title\"><a href=\"?page=addcategory&id=".$row['id']."\"><p>" . $row['id'] . "</p></a></td>
                 <td ><a href=\"?page=addcategory&id=".$row['id']."\"><p>" . $row['name'] . "</p></a></td>
                 <td ><a href=\"?page=addcategory&id=".$row['id']."\"></a></td>
-                <td class=button-w><a href=\"?page=addcategory&id=".$row['id']."\"><img src=\"./img/arrow-r.png\" alt=\"\"></a>
+                <td ><a href=\"?page=addcategory&id=".$row['id']."\"></a></td>
+                <td class=button-w><a class=\"pijltjes\" href=\"?page=addcategory&id=".$row['id']."\"><img src=\"./img/arrow-r.png\" alt=\"\"></a>
                 </td>
                 </tr>";
             }

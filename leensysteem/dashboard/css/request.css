@@ -48,16 +48,29 @@
   
   .names{
     display: grid;
-    grid-template-columns: 10% 30% 50% 10%;
+    grid-template-columns: 20% 30% 40% 10%;
   }
   
   .products{
     display: grid;
-    grid-template-columns: 10% 30% 50% 10%;
+    grid-template-columns: 20% 30% 40% 10%;
     border-style: solid;
     border-color: black;
     border-width: 0.1rem;
     background-color: #FFFFFF;
+  }
+
+  .products div{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .products div .img{
+    max-width: 12rem;
+    height: auto;
   }
   
   .aantalSpacer{
@@ -71,8 +84,8 @@
   
   .footer-container{
     width: 100%;
-    display: grid;
-    grid-template-columns: 70% 30%;
+    display: flex;
+    justify-content: space-between;
     padding-bottom: 4rem;
   }
   
@@ -93,13 +106,18 @@
   
   
   .button{
-    height: 8rem;
-    width: 8rem;
+    height: 7rem;
+    width: 15rem;
+    font-size: 2.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #78A083;
     border: none;
+  }
+
+  .button:hover{
+    cursor: pointer;
   }
   
   .button:nth-child(2){
@@ -124,6 +142,16 @@
     justify-content: flex-end;
     gap: 2rem;
   }
+
+  .button-container-turnin{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+
 
   .aantalSpacer{
     color: #000;
