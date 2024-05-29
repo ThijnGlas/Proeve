@@ -46,15 +46,9 @@ while ($row3 = mysqli_fetch_assoc($result2)) { ?>
             $Monday = $row3["Monday"];
             if ($Monday) {
                 ?>
-                <label class="labels" for="md1">Ja</label>
-                <input class="input" id="md1" type="radio" name="md" value="1" checked>
-                <label class="labels" for="md2">Nee</label>
-                <input class="input" id="md2" type="radio" name="md" value="0">
+                <input type="checkbox" name="md" checked>
             <?php } else { ?>
-                <label class="labels" for="md3">Ja</label>
-                <input class="input" id="md3" type="radio" name="md" value="1">
-                <label class="labels" for="md4">Nee</label>
-                <input class="input" id="md4" type="radio" name="md" value="0" checked>
+                <input type="checkbox" name="md">
             <?php } ?>
             </div>
 
@@ -64,15 +58,9 @@ while ($row3 = mysqli_fetch_assoc($result2)) { ?>
             $Tuesday = $row3["Tuesday"];
             if ($Tuesday) {
                 ?>
-                <label class="labels" for="dd1">Ja</label>
-                <input class="input" id="dd1" type="radio" name="dd" value="1" checked>
-                <label class="labels" for="dd2">Nee</label>
-                <input class="input" id="dd2" type="radio" name="dd" value="0">
+                <input type="checkbox" name="dd" checked>
             <?php } else { ?>
-                <label class="labels" for="dd3">Ja</label>
-                <input class="input" id="dd3" type="radio" name="dd" value="1">
-                <label class="labels" for="dd4">Nee</label>
-                <input class="input" id="dd4" type="radio" name="dd" value="0" checked>
+                <input type="checkbox" name="dd">
             <?php } ?>
             </div>
 
@@ -82,15 +70,9 @@ while ($row3 = mysqli_fetch_assoc($result2)) { ?>
             $Wednesday = $row3["Wednesday"];
             if ($Wednesday) {
                 ?>
-                <label class="labels" for="wd1">Ja</label>
-                <input class="input" id="wd1" type="radio" name="wd" value="1" checked>
-                <label class="labels" for="wd2">Nee</label>
-                <input class="input" id="wd2" type="radio" name="wd" value="0">
+                <input type="checkbox" name="wd" checked>
             <?php } else { ?>
-                <label class="labels" for="wd3">Ja</label>
-                <input class="input" id="wd3" type="radio" name="wd" value="1">
-                <label class="labels" for="wd4">Nee</label>
-                <input class="input" id="wd4" type="radio" name="wd" value="0" checked>
+                <input type="checkbox" name="wd">
             <?php } ?>
             </div>
 
@@ -100,15 +82,9 @@ while ($row3 = mysqli_fetch_assoc($result2)) { ?>
             $Thursday = $row3["Thursday"];
             if ($Thursday) {
                 ?>
-                <label class="labels" for="drd1">Ja</label>
-                <input class="input" id="drd1" type="radio" name="drd" value="1" checked>
-                <label class="labels" for="drd2">Nee</label>
-                <input class="input" id="drd2" type="radio" name="drd" value="0">
+                <input type="checkbox" name="drd" checked>
             <?php } else { ?>
-                <label class="labels" for="drd3">Ja</label>
-                <input class="input" id="drd3" type="radio" name="drd" value="1">
-                <label class="labels" for="drd4">Nee</label>
-                <input class="input" id="drd4" type="radio" name="drd" value="0" checked>
+                <input type="checkbox" name="drd">
             <?php } ?>
             
             </div>
@@ -118,15 +94,9 @@ while ($row3 = mysqli_fetch_assoc($result2)) { ?>
             $Friday = $row3["Friday"];
             if ($Friday) {
                 ?>
-                <label class="labels" for="vd1">Ja</label>
-                <input class="input" id="vd1" type="radio" name="vd" value="1" checked>
-                <label class="labels" for="vd2">Nee</label>
-                <input class="input" id="vd2" type="radio" name="vd" value="0">
+                <input type="checkbox" name="vd" checked>
             <?php } else { ?>
-                <label class="labels" for="vd3">Ja</label>
-                <input class="input" id="vd3" type="radio" name="vd" value="1">
-                <label class="labels" for="vd4">Nee</label>
-                <input class="input" id="vd4" type="radio" name="vd" value="0" checked>
+                <input type="checkbox" name="vd">
             <?php } ?>
             </div>
 

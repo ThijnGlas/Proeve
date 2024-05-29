@@ -68,8 +68,8 @@ function getProductsShoppingcart()
             while ($row = mysqli_fetch_array($get_productsc)) {
                 ?>
 
-                <div class="cartEntree-container">
-                    <div class="image-container">
+                <div class="cartEntree-container cartEntree-border">
+                    <div class="image-container image-border">
                         <img src="./img/<?= $row['img'] ?>" alt="">
                     </div>
                     <div class="content-container">

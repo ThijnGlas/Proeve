@@ -24,9 +24,6 @@
     font-weight: 300;
   }
   @media only screen and (min-width: 1101px) {
-    .verzoek-container{
-        height: 50%;
-    }
     .verzoek{
         width: 90rem;
         left: 0;

@@ -1,23 +1,28 @@
 .cartEntree-container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 14rem 40rem 6rem;
     justify-content: center;
-    border: 0.2rem;
-    border-style: solid;
     margin: 0;
     padding: 0;
-    background-color: white;
   }
   
+  .cartEntree-border{
+    border: 0.2rem;
+    border-style: solid;
+    background-color: white;
+  }
   .image-container {
     display: flex;
     flex-direction: row;
     width: 14rem;
+  }
+  
+  .image-border{
     border: 0px;
     border-right: 0.2rem;
     border-style: solid;
   }
-  
+
   .image-container img {
     height: 10rem;
   }
@@ -44,14 +49,23 @@
   .spacer {
     width: 80rem;
     margin-left: 0.96rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2.1rem;
   }
   
   .spacer2 {
     margin-right: 9.6rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2.1rem;
   }
   
   .spacer3 {
     margin-right: 3.2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2.1rem;
   }
   
   .hoeveel {
@@ -100,7 +114,19 @@
     margin-left: 6.4rem;
     margin-right: 6.4rem;
   }
+
+  .emptyCart{
+    background-color: #A0153E;
+    color: white;
+    height: 3rem;
+    padding: 1rem;
+    margin-bottom: 2.5rem;
+  }
   
+  .emptyCart p{
+    margin: 0;
+  }
+
   .formulier form {
     display: flex;
     flex-direction: column;
