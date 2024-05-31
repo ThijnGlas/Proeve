@@ -19,6 +19,22 @@ ol{font-size:2rem;
     color: #ff01e6;
     text-align: center;
 }
+
+.terug{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.terug a{
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: #ff01e6;
+    color: white !important;
+    text-decoration: none;
+
+}
 li{
     font-size: 1.5rem;
     color: white;
