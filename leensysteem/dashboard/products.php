@@ -33,7 +33,7 @@ $connection = dbconnect("c4993aps2");
             //in deze if statement check ik of er een post en of de post niet leeg is
             if(isset($_POST['zoekenInput']) && trim($_POST['zoekenInput']) != ""){ 
                 //in deze query kijk ik of er artikels zijn waarvan de titel of het id in de database staat als beide niet waar zijn krijg je een message met daarin artikel niet gevonden.
-                $productsFromDatabase = mysqli_query($connection, "SELECT * FROM products WHERE name LIKE '%".$_POST['zoekenInput']."%' OR id = '".$_POST['zoekenInput']."'") or die (mysqli_error($connection)); 
+                $productsFromDatabase = mysqli_query($connection, "SELECT * FROM products WHERE name LIKE '%" . $_POST['zoekenInput'] . "%' OR id = '" . $_POST['zoekenInput'] . "' OR model_type LIKE '%" . $_POST['zoekenInput'] . "%'") or die (mysqli_error($connection)); 
                 if (mysqli_num_rows($productsFromDatabase) == 0) {
                     header("location: home.php?page=products&action=product_notfound");
                 }

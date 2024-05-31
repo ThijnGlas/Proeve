@@ -171,47 +171,54 @@ function storeToBorrowed()
     }
 }
 
-function updateborrow()
-{
+function updateborrow() {
     $connection = dbconnect("c5831Leensysteem");
 
-    $get_borrow = mysqli_query($connection, "SELECT * FROM borrow WHERE id = '" . mysqli_real_escape_string($connection, $_POST['id']) . "' LIMIT 1") or die(mysqli_error($connection));
-
-    if ($borrow = mysqli_fetch_assoc($get_borrow)) {
-        $name = $borrow['name'];
-        $schoolnumber = $borrow['schoolnumber'];
-    }
-
     if (isset($_POST['requestupdateForm'])) {
-        if (isset($_POST['accepted'])) {
-            if ($_POST['date']) {
+        $get_borrow = mysqli_query($connection, "SELECT * FROM borrow WHERE id = '" . mysqli_real_escape_string($connection, $_POST['id']) . "' LIMIT 1") or die(mysqli_error($connection));
+
+        if ($borrow = mysqli_fetch_assoc($get_borrow)) {
+            $name = $borrow['name'];
+            $schoolnumber = $borrow['schoolnumber'];
+            $products = json_decode($borrow['products'], true);
+
+            if (isset($_POST['accepted'])) {
+                if ($_POST['date']) {
+                    foreach ($products as $product) {
+                        $product_id = $product['item_id'];
+                        $product_quantity = $product['item_quantity'];
+                        mysqli_query($connection, "UPDATE products SET amount = amount - $product_quantity WHERE id = '$product_id'");
+                    }
+
+                    mysqli_query(
+                        $connection,
+                        "UPDATE borrow SET 
+                        date_tobereturned = '" . mysqli_real_escape_string($connection, $_POST['date']) . "', 
+                        accepted = '1', 
+                        declined = '0'
+                        WHERE id = '" . mysqli_real_escape_string($connection, $_POST['id']) . "' LIMIT 1"
+                    ) or die(mysqli_error($connection));
+                    verstuur_mail($name, $schoolnumber, $_POST['date'], "", true);
+                } else {
+                    header("Location: home.php?page=request&id=" . $_POST['id'] . "&message=1");
+                    exit;
+                }
+            } elseif (isset($_POST['declined'])) {
+                $reason = isset($_POST['reason']) ? "Reden: " . $_POST['reason'] : "";
                 mysqli_query(
                     $connection,
                     "UPDATE borrow SET 
-                    date_tobereturned = '" . mysqli_real_escape_string($connection, $_POST['date']) . "', 
-                    accepted = '1', 
-                    declined = '0'
+                    declined = '1', 
+                    accepted = '0'
                     WHERE id = '" . mysqli_real_escape_string($connection, $_POST['id']) . "' LIMIT 1"
                 ) or die(mysqli_error($connection));
-                verstuur_mail($name, $schoolnumber, $_POST['date'], 1);
-            } else {
-                header("Location: home.php?page=request&id=" . $_POST['id'] . "&message=1");
-                exit;
+                verstuur_mail($name, $schoolnumber, $_POST['date'], $reason, false);
             }
-        } elseif (isset($_POST['declined'])) {
-            mysqli_query(
-                $connection,
-                "UPDATE borrow SET 
-                declined = '1', 
-                accepted = '0'
-                WHERE id = '" . mysqli_real_escape_string($connection, $_POST['id']) . "' LIMIT 1"
-            ) or die(mysqli_error($connection));
-            verstuur_mail($name, $schoolnumber, $_POST['date'], 0);
         }
     }
 }
 
-function verstuur_mail($name, $schoolnumber, $returndate, $action)
+function verstuur_mail($name, $schoolnumber, $returndate, $reason, $action)
 {
     $afzender = "j.hensen@ma-web.nl";
     $ontvanger = $schoolnumber . "@ma-web.nl";
@@ -231,7 +238,7 @@ function verstuur_mail($name, $schoolnumber, $returndate, $action)
         $bericht = "
         Beste $name,
     
-        Uw aanvraag is afgewezen.
+        Uw aanvraag is afgewezen op ".gmdate('d-m-y').". $reason
     
         Met vriendelijke groet,
         Techlab
@@ -245,28 +252,33 @@ function verstuur_mail($name, $schoolnumber, $returndate, $action)
     mail($ontvanger, $onderwerp, $bericht, $headers);
 }
 
-function turnin()
-{
+    function turnin() {
     $connection = dbconnect("c5831Leensysteem");
 
-    $get_borrow = mysqli_query($connection, "SELECT * FROM borrow WHERE id = '" . mysqli_real_escape_string($connection, $_POST['id']) . "' LIMIT 1") or die(mysqli_error($connection));
-
-    if ($borrow = mysqli_fetch_assoc($get_borrow)) {
-        $name = $borrow['name'];
-        $schoolnumber = $borrow['schoolnumber'];
-    }
-
     if (isset($_POST['turninForm'])) {
-        if (isset($_POST['accepted'])) {
-            mysqli_query(
-                $connection,
-                "UPDATE borrow SET 
-                    date_returned = '" . gmdate('y-m-d') . "' 
+        $get_borrow = mysqli_query($connection, "SELECT * FROM borrow WHERE id = '" . mysqli_real_escape_string($connection, $_POST['id']) . "' LIMIT 1") or die(mysqli_error($connection));
+
+        if ($borrow = mysqli_fetch_assoc($get_borrow)) {
+            $products = json_decode($borrow['products'], true);
+
+            if (isset($_POST['accepted'])) {
+                foreach ($products as $product) {
+                    $product_id = $product['item_id'];
+                    $product_quantity = $product['item_quantity'];
+                    mysqli_query($connection, "UPDATE products SET amount = amount + $product_quantity WHERE id = '$product_id'");
+                }
+
+                mysqli_query(
+                    $connection,
+                    "UPDATE borrow SET 
+                    date_returned = '" . gmdate('Y-m-d') . "' 
                     WHERE id = '" . mysqli_real_escape_string($connection, $_POST['id']) . "' LIMIT 1"
-            ) or die(mysqli_error($connection));
+                ) or die(mysqli_error($connection));
+                header("Location: home.php?page=turnins");
+
+            }
         }
     }
 }
-
 
 ?>

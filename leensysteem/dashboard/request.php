@@ -3,7 +3,7 @@ $id = $_GET['id'];
 
 $message = "";
 
-if($_GET['message']){
+if ($_GET['message']) {
     echo "<p>u heeft geen datum ingevoerd</p>";
 }
 
@@ -14,6 +14,8 @@ if ($id) {
         $name = $borrow['name'];
         $schoolnummer = $borrow['schoolnumber'];
         $products = $borrow['products'];
+        $accepted = $borrow['accepted'];
+        $declined = $borrow['declined'];
 
         $products_array = json_decode($products, true);
 
@@ -41,14 +43,22 @@ if ($id) {
 }
 
 
+if (isset($_POST['declined'])) {
+    $reason = $_POST['reason'];
+
+    $currentDate = date('Y-m-d');
+
+
+    verstuur_mail($name, $schoolnummer, $currentDate, $reason, false);
+}
 
 
 ?>
 <a href="?page=requests">
-  <p class="terug"><- terug</p>
+    <p class="terug"><- terug</p>
 </a>
 <div class="inlevering-container">
-<?= $message ?>
+    <?= $message ?>
 
 
     <div class="header-container">
@@ -61,16 +71,18 @@ if ($id) {
                 <p></p>
                 <p>product</p>
                 <p>model</p>
+                <p>locatie</p>
                 <p>aantal</p>
             </div>
             <?php if (!empty($products_details)):
                 foreach ($products_details as $product): ?>
                     <div class="products">
                         <div>
-                        <img class="img" src="../img/<?php echo $product['img']; ?>" alt="<?php echo $product['name']; ?>">
+                            <img class="img" src="../img/<?php echo $product['img']; ?>" alt="<?php echo $product['name']; ?>">
                         </div>
                         <p><?php echo $product['name']; ?></p>
                         <p><?php echo $product['model_type']; ?></p>
+                        <p><?php echo $product['storage']; ?></p>
                         <p class="aantalSpacer"><?php echo $product['quantity']; ?></p>
                     </div>
                 <?php endforeach;
@@ -79,6 +91,7 @@ if ($id) {
             <?php endif; ?>
         </div>
         <div class="footer-container">
+
             <div class="datum-container">
                 <p>Welke dag moet dit ingeleverd worden?</p>
                 <form action="home.php" name="requestupdateForm" method="post">
@@ -87,8 +100,14 @@ if ($id) {
                     <input type="date" name="date">
             </div>
             <div class="button-container">
+                <div class="reden">
+                    <label class="label-reden" for="reason">Reden voor afwijzing:</label><br>
+                    <textarea class="text-reden" id="reason" name="reason" required></textarea><br>
+                </div>
                 <button type="submit" name="accepted" value="1" class="button">Accept</button>
-                <button type="submit" name="declined" value="1" class="button">Decline</button>
+                <?php if ($declined != 1): ?>
+                    <button type="submit" name="declined" value="1" class="button">Decline</button>
+                <?php endif; ?>
                 </form>
             </div>
         </div>

@@ -21,9 +21,24 @@ if (array_key_exists('page', $_GET)) {
 
 
 if (isset($_POST["add_to_cart"])) {
+    $product_id = $_POST["hidden_id"];
+    $quantity_requested = $_POST["quantity"];
+    
+    $query = "SELECT max_amount FROM products WHERE id = '$product_id'";
+    $result = mysqli_query($connection, $query);
+    $row = mysqli_fetch_assoc($result);
+    
+    if ($row) {
+        $max_amount = $row['max_amount'];
+        
+        if ($quantity_requested > $max_amount) {
+            header("location:index.php?page=product&id=".$product_id."&error=1");
+            exit;
+        }
+    }
+    
     if (isset($_COOKIE["shopping_cart"])) {
         $cookie_data = stripslashes($_COOKIE['shopping_cart']);
-
         $cart_data = json_decode($cookie_data, true);
     } else {
         $cart_data = array();
@@ -31,39 +46,27 @@ if (isset($_POST["add_to_cart"])) {
 
     $item_id_list = array_column($cart_data, 'item_id');
 
-    if (isset($_POST["add_to_cart"])) {
-        if (isset($_COOKIE["shopping_cart"])) {
-            $cookie_data = stripslashes($_COOKIE['shopping_cart']);
-
-            $cart_data = json_decode($cookie_data, true);
-        } else {
-            $cart_data = array();
-        }
-
-        $item_id_list = array_column($cart_data, 'item_id');
-
-        if (in_array($_POST["hidden_id"], $item_id_list)) {
-            foreach ($cart_data as $keys => $values) {
-                if ($cart_data[$keys]["item_id"] == $_POST["hidden_id"]) {
-                    $cart_data[$keys]["item_quantity"] = $cart_data[$keys]["item_quantity"] + $_POST["quantity"];
-                }
+    if (in_array($_POST["hidden_id"], $item_id_list)) {
+        foreach ($cart_data as $keys => $values) {
+            if ($cart_data[$keys]["item_id"] == $_POST["hidden_id"]) {
+                $cart_data[$keys]["item_quantity"] = $cart_data[$keys]["item_quantity"] + $_POST["quantity"];
             }
-        } else {
-            $item_array = array(
-                'item_id' => $_POST["hidden_id"],
-                'item_name' => $_POST["hidden_name"],
-                'item_quantity' => $_POST["quantity"]
-            );
-            $cart_data[] = $item_array;
         }
-
-
-        $item_data = json_encode($cart_data);
-        setcookie('shopping_cart', $item_data, time() + (86400 * 30));
-        header("location:index.php?success=1");
+    } else {
+        $item_array = array(
+            'item_id' => $_POST["hidden_id"],
+            'item_name' => $_POST["hidden_name"],
+            'item_quantity' => $_POST["quantity"]
+        );
+        $cart_data[] = $item_array;
     }
 
+    $item_data = json_encode($cart_data);
+    setcookie('shopping_cart', $item_data, time() + (86400 * 30));
+    header("location:index.php?success=1");
 }
+
+
 
 if (isset($_GET["action"])) {
     if ($_GET["action"] == "delete") {
@@ -82,6 +85,21 @@ if (isset($_GET["action"])) {
         setcookie("shopping_cart", "", time() - 3600);
         header("location:index.php?page=shoppingcart&clearall=1");
     }
+}
+
+if (isset($_GET["notfound"])) {
+    $message = '
+ <div class="message remove-msg">
+    <p>Geen product gevonden.</p>
+ </div>
+ ';
+}
+if (isset($_GET["error"])) {
+    $message = '
+ <div class="message remove-msg">
+    <p>u probeert meer te lenen dan het mogelijke aantal.</p>
+ </div>
+ ';
 }
 
 if (isset($_GET["notfound"])) {
@@ -150,7 +168,7 @@ storeToBorrowed();
                     alt="Shoppingcart-Icon" /></a>
             <div class="searchBar">
                 <form action="?page=products" method="post">
-                    <input class="id-zoek" name="zoekenInput" type="text" placeholder="zoeken met naam">
+                    <input class="id-zoek" name="zoekenInput" type="text" placeholder="zoek met naam of model">
                     <input type="hidden" name="zoekenId" value="1">
                 </form>
             </div>

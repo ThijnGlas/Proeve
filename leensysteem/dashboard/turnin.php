@@ -49,6 +49,7 @@ if ($id) {
                 <p></p>
                 <p>product</p>
                 <p>model</p>
+                <p>locatie</p>
                 <p>aantal</p>
             </div>
             <?php if (!empty($products_details)):
@@ -59,6 +60,8 @@ if ($id) {
                         </div>
                         <p><?php echo $product['name']; ?></p>
                         <p><?php echo $product['model_type']; ?></p>
+                        <p><?php echo $product['storage']; ?></p>
+
                         <p class="aantalSpacer"><?php echo $product['quantity']; ?></p>
                     </div>
                 <?php endforeach;

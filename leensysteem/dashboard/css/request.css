@@ -34,6 +34,30 @@
   margin-top: 3rem;
 }
 
+.width{
+  width: 100%;
+}
+
+.reden{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label-reden{
+  font-size: 1.8rem;
+  color: #000;
+
+}
+
+.text-reden{
+  font-size: 1.8rem;
+  color: #000;
+  width: 30rem;
+  height: 5rem;
+
+}
+
 .content-container{
   width: 80%;
   display: flex;
@@ -49,12 +73,14 @@
 
 .names{
   display: grid;
-  grid-template-columns: 20% 30% 40% 10%;
+  width: 100%;
+  grid-template-columns: 15% 25% 25% 25% 10%;
 }
 
 .products{
   display: grid;
-  grid-template-columns: 20% 30% 40% 10%;
+  width: 100%;
+  grid-template-columns: 15% 25% 25% 25% 10%;
   border-style: solid;
   border-color: black;
   border-width: 0.1rem;
@@ -129,7 +155,7 @@
   cursor: pointer;
 }
 
-.button:nth-child(2){
+.button:nth-child(3){
   background-color: #a0153e;
 }
 

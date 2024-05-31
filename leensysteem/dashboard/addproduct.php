@@ -20,7 +20,7 @@ if (isset($_POST['toevoegenForm'])) {
         mysqli_query(
             $connection,
             "INSERT INTO products 
-    (user_id, name, amount, model_type, max_amount, category, img, description)
+    (user_id, name, amount, model_type, max_amount, category, img, description, storage)
     values
     ('" . mysqli_real_escape_string($connection, $_COOKIE['user_id']) . "', 
     '" . mysqli_real_escape_string($connection, $_POST['nameInput']) . "', 
@@ -29,7 +29,8 @@ if (isset($_POST['toevoegenForm'])) {
     '" . mysqli_real_escape_string($connection, $_POST['maxamountInput']) . "', 
     '" . mysqli_real_escape_string($connection, $_POST['categoryInput']) . "', 
     '" . mysqli_real_escape_string($connection, $_POST['imgInput']) . "', 
-    '" . mysqli_real_escape_string($connection, $_POST['descriptionInput']) . "'
+    '" . mysqli_real_escape_string($connection, $_POST['descriptionInput']) . "', 
+    '" . mysqli_real_escape_string($connection, $_POST['storageInput']) . "'
     )"
         ) or die(mysqli_error($connection));
 
@@ -62,7 +63,8 @@ if (isset($_POST['toevoegenForm'])) {
       model_type = '" . mysqli_real_escape_string($connection, $_POST['modelTypeInput']) . "',
       max_amount = '" . mysqli_real_escape_string($connection, $_POST['maxamountInput']) . "',
       category = '" . mysqli_real_escape_string($connection, $_POST['categoryInput']) . "',
-      description = '" . mysqli_real_escape_string($connection, $_POST['descriptionInput']) . "'
+      description = '" . mysqli_real_escape_string($connection, $_POST['descriptionInput']) . "',
+      storage = '" . mysqli_real_escape_string($connection, $_POST['storageInput']) . "'
       WHERE id = '" . $_POST['editId'] . "' LIMIT 1
       "
         ) or die(mysqli_error($connection));
@@ -105,6 +107,7 @@ if (array_key_exists('id', $_GET)) {
         $categoryInput = $product['category'];
         $imgInput = $product['img'];
         $descriptionInput = $product['description'];
+        $storageInput = $product['storage'];
     }
     // if(mysqli_num_rows($productsFromDatabase) == 0){
     //     header("location: home.php?page=products&action=product_notfound");
@@ -119,6 +122,7 @@ else {
     $categoryInput = "";
     $imgInput = "";
     $descriptionInput = "";
+    $storageInput = "";
 }
 
 
@@ -188,6 +192,15 @@ else {
                             <label for="heroimg">Foto:</label>
                             <input type="hidden" name="oldImg" value="<?= $imgInput; ?>">
                             <input class="imginput" id="heroimg" type="file" name="imgInput">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <label for="storage">storage:</label>
+                            <input type="hidden" name="storageImg" value="<?= $storageInput; ?>">
+                            <input id="storage" value="<?= $storageInput; ?>" type="text" name="storageInput">
                         </div>
                     </td>
                 </tr>

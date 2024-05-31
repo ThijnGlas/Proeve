@@ -1,6 +1,7 @@
 <?php
 
 $id = $_GET['id'];
+$connection = dbconnect("c5831Leensysteem");
 
 if ($id) {
     $get_borrow = mysqli_query($connection, "SELECT * FROM borrow WHERE id = '" . mysqli_real_escape_string($connection, $id) . "' LIMIT 1") or die(mysqli_error($connection));
@@ -39,10 +40,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_quantities'])
 
     foreach ($products_array as $key => &$product) {
         $product_id = $product['item_id'];
-        $new_quantity = isset($updated_quantities[$product_id]) ? (int)$updated_quantities[$product_id] : $product['item_quantity'];
-        if ($new_quantity > 0) {
-            $product['item_quantity'] = $new_quantity;
+        $original_quantity = $product['item_quantity'];
+        $returned_quantity = isset($updated_quantities[$product_id]) ? (int)$updated_quantities[$product_id] : 0;
+
+        if ($returned_quantity > 0) {
+            $product['item_quantity'] = $returned_quantity;
             $updated_products_array[] = $product;
+            // Update de voorraad in de database
+            mysqli_query($connection, "UPDATE products SET amount = amount + $returned_quantity WHERE id = '$product_id'");
+        }
+
+        // Indien niet alle items zijn teruggebracht, update de voorraad met het verschil
+        if ($returned_quantity < $original_quantity) {
+            $missing_quantity = $original_quantity - $returned_quantity;
+            mysqli_query($connection, "UPDATE products SET amount = amount - $missing_quantity WHERE id = '$product_id'");
         }
     }
 
@@ -68,21 +79,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_quantities'])
         <p>inlevering van: <?= $name ?></p>
     </div>
     <footer class="content-container">
-        <form action="home.php?page=turninmissing&id=<?= $id ?>" method="post">
+        <form class="width" action="home.php?page=turninmissing&id=<?= $id ?>" method="post">
             <div class="products-container">
-                <div class="names">
+                <div class="names missing">
                     <p></p>
                     <p>product</p>
                     <p>model</p>
+                    <p>locatie</p>
                     <p>aantal</p>
                 </div>
                 <?php if (!empty($products_details)): ?>
                     <?php foreach ($products_details as $product): ?>
-                        <div class="products">
-                        <div>
-                            <img class="img" src="../img/<?php echo $product['img']; ?>" alt="<?php echo $product['name']; ?>">
-                        </div>                            <p><?php echo $product['name']; ?></p>
+                        <div class="products missing">
+                            <div>
+                                <img class="img" src="../img/<?php echo $product['img']; ?>" alt="<?php echo $product['name']; ?>">
+                            </div>
+                            <p><?php echo $product['name']; ?></p>
                             <p><?php echo $product['model_type']; ?></p>
+                            <p><?php echo $product['storage']; ?></p>
+
                             <input type="number" name="product_quantities[<?php echo $product['id']; ?>]" placeholder="0" class="aantalSpacer" value="<?php echo $product['quantity']; ?>">
                         </div>
                     <?php endforeach; ?>

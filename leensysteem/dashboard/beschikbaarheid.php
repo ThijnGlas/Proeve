@@ -50,57 +50,57 @@ $beheer_availabilities = array_column($availabilities, "Fk_beheerder_Id");
                         $Monday = $row3["Monday"];
                         if ($Monday) {
                             ?>
-                            <input type="checkbox" name="md" checked>
+                            <input id="md" type="checkbox" name="md" checked>
                         <?php } else { ?>
-                            <input type="checkbox" name="md">
+                            <input id="md" type="checkbox" name="md">
                         <?php } ?>
                     </div>
 
                     <div class="day-container">
-                        <label class="input label" for="md">Dinsdag</label>
+                        <label class="input label" for="dd">Dinsdag</label>
                         <?php
                         $Tuesday = $row3["Tuesday"];
                         if ($Tuesday) {
                             ?>
-                            <input type="checkbox" name="dd" checked>
+                            <input id="dd" type="checkbox" name="dd" checked>
                         <?php } else { ?>
-                            <input type="checkbox" name="dd">
+                            <input id="dd" type="checkbox" name="dd">
                         <?php } ?>
                     </div>
 
                     <div class="day-container">
-                        <label class="input label" for="md">Woensdag</label>
+                        <label class="input label" for="wd">Woensdag</label>
                         <?php
                         $Wednesday = $row3["Wednesday"];
                         if ($Wednesday) {
                             ?>
-                            <input type="checkbox" name="wd" checked>
+                            <input id="wd" type="checkbox" name="wd" checked>
                         <?php } else { ?>
-                            <input type="checkbox" name="wd">
+                            <input id="wd" type="checkbox" name="wd">
                         <?php } ?>
                     </div>
 
                     <div class="day-container">
-                        <label class="input label" for="md">Donderdag</label>
+                        <label class="input label" for="td">Donderdag</label>
                         <?php
                         $Thursday = $row3["Thursday"];
                         if ($Thursday) {
                             ?>
-                            <input type="checkbox" name="drd" checked>
+                            <input id="td" type="checkbox" name="drd" checked>
                         <?php } else { ?>
-                            <input type="checkbox" name="drd">
+                            <input id="td" type="checkbox" name="drd">
                         <?php } ?>
 
                     </div>
                     <div class="day-container">
-                        <label class="input label" for="md">Vrijdag</label>
+                        <label class="input label" for="fd">Vrijdag</label>
                         <?php
                         $Friday = $row3["Friday"];
                         if ($Friday) {
                             ?>
-                            <input type="checkbox" name="vd" checked>
+                            <input id="fd" type="checkbox" name="vd" checked>
                         <?php } else { ?>
-                            <input type="checkbox" name="vd">
+                            <input id="fd" type="checkbox" name="vd">
                         <?php } ?>
                     </div>
 
