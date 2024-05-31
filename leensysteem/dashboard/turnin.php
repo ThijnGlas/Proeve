@@ -66,7 +66,7 @@ if ($id) {
                 <p>Geen producten gevonden.</p>
             <?php endif; ?>
         </div>
-        <div class="footer-container">
+        <div class="footer-container-turnin">
             <form action="home.php" name="turninForm" method="post">
                 <input type="hidden" name="turninForm">
                 <input type="hidden" name="id" value="<?= $id; ?>">

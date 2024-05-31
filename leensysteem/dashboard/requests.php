@@ -2,7 +2,7 @@
 
 require_once ("functions.php");
 
-$connection = dbconnect("c4993aps2");
+$connection = dbconnect("c5831Leensysteem");
 
 ?>
 

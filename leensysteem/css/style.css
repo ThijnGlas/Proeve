@@ -121,6 +121,20 @@
     bottom: 0;
     float: right;
   }
+
+  .help{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .help .hulp{
+font-size: 2.2rem;
+padding: 1rem;
+background-color: #b91f1f;    
+margin-top: 20px;
+
+
+  }
   
   @media (max-width: 600px) {
   

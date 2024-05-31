@@ -101,7 +101,7 @@ else {
             <?php
             if ($trashcan === 1) {
                 echo "            
-                    <a href=\"?page=deletecategorie&id=" . $editId . "\"><img src=\"./img/trashcan.png\" alt=\"\"></a>
+                    <a href=\"?page=deletecategory&id=" . $editId . "\"><img src=\"./img/trashcan.png\" alt=\"\"></a>
                     ";
             }
             ?>

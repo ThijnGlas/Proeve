@@ -90,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_quantities'])
                     <p>Geen producten gevonden.</p>
                 <?php endif; ?>
             </div>
-            <div class="footer-container">
+            <div class="footer-container-turnin">
                 <input type="hidden" name="id" value="<?= $id; ?>">
                 <div class="button-container-turnin">
                     <input type="submit" class="button" value="verstuur">

@@ -53,13 +53,13 @@ turnin();
                     <li>Producten</li>
                 </a>
                 <a href="?page=categories">
-                    <li>categories</li>
+                    <li>Categories</li>
                 </a>
                 <a href="?page=requests">
                     <li>Aanvragen</li>
                 </a>
                 <a href="?page=turnins">
-                    <li>inleveren</li>
+                    <li>Inleveren</li>
                 </a>
                 <a href="?page=beschikbaarheid">
                     <li>Beschikbaarheid</li>

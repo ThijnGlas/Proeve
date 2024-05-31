@@ -40,27 +40,28 @@ function check_login($user_id, $session, $ipv4)
 
 }
 
-function displayBeheerder(){
+function displayBeheerder()
+{
     $connection = dbconnect("c5831Leensysteem");
 
     $day = date("l");
-    
+
 
     // Controleer of de dagkolom bestaat in de database
-    $sql = 'SHOW COLUMNS FROM availabilities LIKE "'.$day.'"';
+    $sql = 'SHOW COLUMNS FROM availabilities LIKE "' . $day . '"';
     $result = mysqli_query($connection, $sql);
-    
-    if(mysqli_num_rows($result) > 0) {
+
+    if (mysqli_num_rows($result) > 0) {
         $sql = 'SELECT * FROM availabilities';
         $result = mysqli_query($connection, $sql);
-        
-        if($result) {
-            while($row = mysqli_fetch_assoc($result)){
-                if($row[$day]){
+
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                if ($row[$day]) {
                     $id = $row['Fk_beheerder_Id'];
                     $sql2 = "SELECT * FROM beheerder WHERE id='$id'";
                     $result2 = mysqli_query($connection, $sql2);
-                    if($result2){
+                    if ($result2) {
                         $row2 = mysqli_fetch_assoc($result2);
                         echo $row2['Naam'] . "<br>";
                     } else {
@@ -108,9 +109,9 @@ function getProductsShoppingcart()
             while ($row = mysqli_fetch_array($get_productsc)) {
                 ?>
 
-                <div class="cartEntree-container">
-                    <div class="image-container">
-                        <img src="./img/<?= $row['img'] ?>" alt="">
+                <div class="cartEntree-container cartEntree-border">
+                    <div class="image-container image-border">
+                         <img src="./img/<?= $row['img'] ?>" alt="">
                     </div>
                     <div class="content-container">
                         <p class="spacer"><?= $values['item_name'] ?></p>
@@ -210,13 +211,14 @@ function updateborrow()
     }
 }
 
-function verstuur_mail($name, $schoolnumber, $returndate, $action ) {
-    $afzender = "30639@ma-web.nl";
-    $ontvanger = $schoolnumber."@ma-web.nl";
+function verstuur_mail($name, $schoolnumber, $returndate, $action)
+{
+    $afzender = "j.hensen@ma-web.nl";
+    $ontvanger = $schoolnumber . "@ma-web.nl";
     $onderwerp = "Onderwerp van de e-mail";
     $bericht = "";
 
-    if($action){
+    if ($action) {
         $bericht = "
         Beste $name,
     
@@ -224,9 +226,8 @@ function verstuur_mail($name, $schoolnumber, $returndate, $action ) {
     
         Met vriendelijke groet,
         Techlab
-        ";    
-    }
-    elseif(!$action){
+        ";
+    } elseif (!$action) {
         $bericht = "
         Beste $name,
     
@@ -234,7 +235,7 @@ function verstuur_mail($name, $schoolnumber, $returndate, $action ) {
     
         Met vriendelijke groet,
         Techlab
-        ";  
+        ";
     }
 
     $headers = "From: $afzender\r\n";
@@ -257,15 +258,15 @@ function turnin()
 
     if (isset($_POST['turninForm'])) {
         if (isset($_POST['accepted'])) {
-                mysqli_query(
-                    $connection,
-                    "UPDATE borrow SET 
+            mysqli_query(
+                $connection,
+                "UPDATE borrow SET 
                     date_returned = '" . gmdate('y-m-d') . "' 
                     WHERE id = '" . mysqli_real_escape_string($connection, $_POST['id']) . "' LIMIT 1"
-                ) or die(mysqli_error($connection));
-            }
-        } 
+            ) or die(mysqli_error($connection));
+        }
     }
+}
 
 
 ?>

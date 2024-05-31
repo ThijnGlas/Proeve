@@ -9,6 +9,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $last_id = mysqli_insert_id($conn);
     $sql4 = "INSERT INTO availabilities (Fk_beheerder_Id) VALUE ('$last_id')";
     mysqli_query($conn, $sql4);
-    header("Location: http://29093.hosts2.ma-cloud.nl/Testing/leensysteem/dashboard/home.php?page=beschikbaarheid");
+    header("Location: https://30639.hosts1.ma-cloud.nl/leensysteem/dashboard/home.php?page=beschikbaarheid");
 
 }

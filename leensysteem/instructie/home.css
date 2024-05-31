@@ -1,0 +1,194 @@
+@font-face {
+    font-family: Berthold;
+    src: url(../../BERTHOLD.TTF);
+  }
+Body {
+    background-color: black;
+    font-family: "Berthold";
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 1920px;
+  }
+p{text-align: center;
+color: black;
+background-color: white;
+font-size: 1.5rem;
+border: 1px solid white;}
+ol{font-size:2rem;
+    color: #ff01e6;
+    text-align: center;
+}
+li{
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+}
+.instructie-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.instructie{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.instructie ol{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.instructie h1{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+.dropdown{
+ gap:1rem;
+    text-align: center;
+}
+.dropdown1{text-align: center; gap: 1rem; }
+.dropdown2{text-align: center;gap: 1rem; }
+.dropdown3{text-align: center;gap: 1rem; }
+.dropdown4{text-align: center;gap: 1rem; }
+#dropdownButton{
+    cursor: pointer; 
+  text-align: right;
+  color: white;
+  font-size:  1.5rem;
+  gap: 1rem;
+}
+#dropdownButton1{
+    cursor: pointer; 
+    text-align: right;
+    color: white;
+    font-size:  1.5rem;
+    gap: 1rem;}
+#dropdownButton2{cursor: pointer; 
+    text-align: right;
+    color: white;
+    font-size:  1.5rem;
+    gap: 1rem;}
+#dropdownButton3{cursor: pointer; 
+    text-align: right;
+    color: white;
+    font-size:  1.5rem;
+    gap: 1rem;}
+#dropdownButton4{cursor: pointer; 
+    text-align: right;
+    color: white;
+    font-size:  1.5rem;
+    gap: 1rem;}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content2 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content3 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content4 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content .dropdown-content1 .dropdown-content2 .dropdown-content3 .dropdown-content4 a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1.5rem;
+}
+h1{
+    color: #ff01e6;
+    text-align: center;
+}
+.dropdown-content .dropdown-content1 .dropdown-content2 .dropdown-content3 .dropdown-content4 a:hover {
+    background-color: #f1f1f1;
+
+}
+.dropbtn {
+    background-color: black;
+    color: white;
+    min-width: 100vw;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button {
+
+    width: 100vw;
+background-color: black;
+    padding: 10px;
+ color: white;
+    font-size: 1.5rem;
+border: none;
+    cursor: pointer;
+
+}
+
+.toggleDiv {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    max-height: 0;
+
+    transition: max-height 0.5s ease-out;
+
+    background-color: white;
+
+    padding: 0 10px;
+
+}
+
+#toggleDiv p {
+
+    margin: 10px 0;
+
+}
+
+
+#restOfContent {
+
+    padding: 10px;
+
+}
